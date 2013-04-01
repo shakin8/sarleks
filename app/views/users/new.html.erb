@@ -1,12 +1,15 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
-
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
-      <%= render 'fields', f: f %>
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-    <% end %>
-  </div>
+<% provide(:title, 'Create Account') %>
+<div class="spacer-medium"></div>
+<div class="span1 depth2 pull-left pad-full-medium wrapper">
+  <h3 class="pad-top-bottom-small">CREATE AN ACCOUNT</h3>
+  <p class="pad-top-bottom-small">
+  	Enter your account details below.
+  </p>
+  <%= form_for(@user) do |f| %>
+    <%= render 'fields', f: f %>
+    <div class="spacer-medium"></div>
+    <%= f.submit "Create my account", class: "button" %>
+  <% end %>
 </div>
+
 

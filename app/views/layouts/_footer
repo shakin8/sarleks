@@ -1,12 +1,24 @@
-<footer class="footer">
-  <small>
-    <a href="http://sarleks.com/">Shakin8 Ltd |</a> Sarleks.
-  </small>
-  <nav>
-    <ul>
-      <li><%= link_to "About",   about_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>
-      <li><a href="http://news.railstutorial.org/">News</a></li>
-    </ul>
-  </nav>
+<footer>
+  <div class="pad-top-bottom-medium">
+    <div class="intersecting-line">
+      <div class="intersecting-object">
+        <span class="autobox">
+          <%= link_to image_tag("icons/twitter.jpg", alt: "Twitter"), '#' %>
+          <%= link_to image_tag("icons/facebook.jpg", alt: "Facebook"), '#' %>
+          <%= link_to image_tag("icons/youtube.jpg", alt: "Youtube"), '#' %>
+          <%= link_to image_tag("icons/tumblr.jpg", alt: "Tumblr"), '#' %>
+          <%= link_to image_tag("icons/pinterest.jpg", alt: "Pinterest"), '#' %>
+        </span>
+      </div>
+    </div>
+  </div>
+  
+  <p><small>
+    <a href="http://sarleks.com/">Shakin8 Ltd |</a> 
+    <a href="http://sarleks.com/">Sarleks.</a>
+  </small></p>
+  
+  <ul>
+    <li><%= link_to "Help", help_path %></li>
+  </ul>
 </footer>
