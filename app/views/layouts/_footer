@@ -14,8 +14,8 @@
   </div>
   
   <p><small>
-    <a href="http://sarleks.com/">Shakin8 Ltd |</a> 
-    <a href="http://sarleks.com/">Sarleks.</a>
+    <%= link_to "Shakin8 Ltd |", root_path %> 
+    <%= link_to "Sarleks.", root_path %>
   </small></p>
   
   <ul>

@@ -1,29 +1,26 @@
-<header class="navbar navbar-fixed-top">
-  <div class="fixed-header">
+<header class="fixed-header">
     <div class="container">
       <nav>
-        <ul class="nav pull-left">
+        <ul class="pull-left">
           <li><%= link_to image_tag("icons/home_icon.png", alt: "Rails"), root_path%></li>
           <li><%= link_to "Portfolio", "#" %></li>
           <li><%= link_to "Shop", "#" %></li>
         </ul
       </nav>  
       <nav>
-        <ul class="nav pull-right">
+        <ul class="pull-right">
           <% if signed_in? %>
             <li><%= link_to "Users", users_path %></li>
-            <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-               My Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to "Sign out", signout_path, method: "delete" %>
+            <li>
+              <ul id="dropdown" class="pull-right">
+                <li>My Account
+                  <ul class="pull-left">
+                    <li><%= link_to "Profile", current_user %></li>
+                    <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                    <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+                  </ul>
                 </li>
-              </ul>
+              </ul>  
             </li>
           <% else %>
             <li><%= link_to "My Account", signin_path %></li>
@@ -32,7 +29,6 @@
         </ul>
       </nav>
     </div>
-  </div>
 </header>
 
 
