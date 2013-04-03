@@ -12,7 +12,7 @@
           <% if signed_in? %>
             <li><%= link_to "Users", users_path %></li>
             <li>
-              <ul id="dropdown" class="pull-right">
+              <ul id="dropdown" class="pull-right" onclick="return true">
                 <li>My Account
                   <ul class="pull-left">
                     <li><%= link_to "Profile", current_user %></li>
