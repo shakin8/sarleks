@@ -57,5 +57,4 @@
 
   <div class="remove-float"></div>
 
-<%=image_tag("london-skyline.jpg", alt: "skyline")%>
 </footer>
