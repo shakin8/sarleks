@@ -13,12 +13,49 @@
     </div>
   </div>
   
-  <p><small>
+  <small>
     <%= link_to "Shakin8 Ltd |", root_path %> 
     <%= link_to "Sarleks.", root_path %>
-  </small></p>
-  
-  <ul>
-    <li><%= link_to "Help", help_path %></li>
-  </ul>
+  </small>
+
+  <div class="spacer-small"></div>
+
+  <div class="footer-span depth1 pull-left">
+    <h3>User Information</h3></br>
+    <ul>
+      <li><%= link_to "About Sarleks", about_path %></li>
+      <li><%= link_to "Need Help?", help_path %></li>
+      <li><%= link_to "FAQs", '#' %></li>
+    </ul>
+  </div>
+
+  <div class="footer-span depth1 pull-left">
+    <h3>About Sarleks</h3></br>
+    <ul>
+      <li><%= link_to "The Company", about_path %></li>
+      <li><%= link_to "Affiliates", '#' %></li>
+      <li><%= link_to "Advertising", '#' %></li>
+      <li><%= link_to "Terms & Conditions", '#' %></li>
+    </ul>
+  </div>
+
+  <div class="footer-span depth1 pull-left">
+    <h3>Get Involved!</h3></br>
+    <ul>
+      <li><%= link_to "Sign Up Now!", '#' %></li>
+      <li><%= link_to "Submit Designs", '#' %></li>
+      <li><%= link_to "Score Designs", '#' %></li>
+    </ul>
+  </div>
+
+  <div class="footer-span-wide depth1 pull-left">
+    <h3>Don't Miss Out</h3></br>
+    <ul>
+      <li><b><%= link_to "Sign Up", '#' %></b> For The Mailing List And Have Your Views Heard.</li>
+    </ul>
+  </div>
+
+  <div class="remove-float"></div>
+
+<%=image_tag("london-skyline.jpg", alt: "skyline")%>
 </footer>
