@@ -10,7 +10,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation
+  attr_accessible :name, :email, :password, :password_confirmation, :username
   has_secure_password
   has_many :microposts, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
 
   before_save { self.email.downcase! }
+  before_save { self.username.downcase! }
   before_save :create_remember_token
 
   validates :name, presence: true, length: { maximum: 50 }
@@ -30,6 +31,10 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+  validates :username, presence: true,
+                     length: { minimum: 2 },
+                     length: { maximum: 20 },
+                     uniqueness: { case_sensitive: false }
 
   def feed
     Micropost.from_users_followed_by(self)
