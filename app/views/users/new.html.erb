@@ -1,5 +1,6 @@
 <% provide(:title, 'Create Account') %>
 <div class="spacer-medium"></div>
+
 <div class="span1 depth2 pull-left pad-full-medium wrapper">
   <h3 class="pad-top-bottom-small">CREATE AN ACCOUNT</h3>
   <p class="pad-top-bottom-small">
@@ -7,8 +8,8 @@
   </p>
   <%= form_for(@user) do |f| %>
     <%= render 'fields', f: f %>
-    <div class="spacer-medium"></div>
-    <%= f.submit "Create my account", class: "button" %>
+    <div class="spacer-small"></div>
+    <%= f.submit "Create my account", class: "button button-pad-temp" %>
   <% end %>
 </div>
 
