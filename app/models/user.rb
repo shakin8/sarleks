@@ -10,7 +10,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation, :username
+  attr_accessible :name, :email, :password, :password_confirmation, :username, :permalink
   has_secure_password
   has_many :microposts, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   before_save { self.email.downcase! }
   before_save { self.username.downcase! }
   before_save :create_remember_token
+  before_save :create_permalink #permalink to use username instead of ID for users in url.
 
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -52,10 +53,18 @@ class User < ActiveRecord::Base
     relationships.find_by_followed_id(other_user.id).destroy
   end
 
+  def to_param
+    permalink
+  end
+
   private
 
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
+    end
+
+    def create_permalink
+      self.permalink = username.downcase
     end
 end
 
