@@ -51,7 +51,13 @@
   <div class="footer-span-wide depth1 pull-left">
     <h3>Don't Miss Out</h3></br>
     <ul>
-      <li><b><%= link_to "Sign Up", '#' %></b> For The Mailing List And Have Your Views Heard.</li>
+      <li>
+        <b><%= link_to "Sign Up", '#' %></b> For The Mailing List To Catch Up On All The Latest Submissions And Have Your Views Heard!
+      </li>
+    <%= form_for(:session, url: sessions_path) do |f| %>
+      <%= f.text_field "#", class: "form-input" %>
+      <%= f.submit "Go", class: "button" %>
+    <% end %>  
     </ul>
   </div>
 
