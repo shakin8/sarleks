@@ -1,0 +1,8 @@
+<% provide(:title, @title) %>
+
+<% @portfolios.each do |portfolio| %>
+  <tr>
+    <td><%= image_tag("portfolioIcon.png", alt: "Portfolio Logo")%></td>
+    <td><%= portfolio.name %></td>
+  </tr>
+<% end %>

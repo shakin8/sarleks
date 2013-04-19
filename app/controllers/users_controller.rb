@@ -63,6 +63,13 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  def portfolios
+    @title = "Portfolios"
+    @user = User.find_by_permalink(params[:id])
+    @portfolios = @user.portfolios
+    render 'show_portfolios'
+  end
+
   private
 
   def correct_user

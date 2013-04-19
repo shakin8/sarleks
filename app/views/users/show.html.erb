@@ -1,5 +1,6 @@
 <% provide(:title, @user.name) %>
-<div class="row">
+<div class="spacer-medium"></div>
+<div class="span2 depth2 pull-left pad-full-medium wrapper">
   <aside class="span4">
     <section>
       <h1>
@@ -11,16 +12,25 @@
       <%= render 'shared/stats' %>
     </section>
   </aside>
+</div>
+
+<div class="span2 depth2 pull-right pad-full-medium wrapper">
+  <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S PORTFOLIOS!</h3>
+  <a href="<%= portfolios_user_path(@user) %>">Portfolios Here.</a>
+</div> 
+
+<div class="clear"></div> 
+
+<div class="spacer-small"></div>
+<div class="span2 depth2 pull-left pad-full-medium wrapper">
   <div class="span8">
-    <%= render 'follow_form' if signed_in? %>
+      <%= render 'follow_form' if signed_in? %>
     <% if @user.microposts.any? %>
-    <h3>Microposts (<%= @user.microposts.count %>)</h3>
-    <ol class="microposts">
-      <%= render @microposts %>
-    </ol>
-    <%= will_paginate @microposts %>
-  <% end %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts %>
+    <% end %>
+  </div>
 </div>
-
-</div>
-
