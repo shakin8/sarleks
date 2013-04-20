@@ -8,6 +8,8 @@ class UsersController < ApplicationController
   def show
   	@user = User.find_by_permalink(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
+    @portfolios = @user.portfolios
+    @collections = @user.collections
   end
 
   def new
@@ -67,7 +69,16 @@ class UsersController < ApplicationController
     @title = "Portfolios"
     @user = User.find_by_permalink(params[:id])
     @portfolios = @user.portfolios
+    @collections = @user.collections.find_all_by_portfolio_id(1)
+    @collections = User.find_by_permalink(params[:id])
     render 'show_portfolios'
+  end
+
+  def collections
+    @title = "Collections"
+    @user = User.find_by_permalink(params[:id])
+    @collections = @user.collections
+    render 'show_collections'
   end
 
   private

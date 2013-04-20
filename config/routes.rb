@@ -4,7 +4,7 @@ Sarleks::Application.routes.draw do
 
   resources :users do
     member do
-      get :following, :followers, :portfolios
+      get :following, :followers, :portfolios, :collections
     end
   end
   resources :sessions, only: [:new, :create, :destroy]

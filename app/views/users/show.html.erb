@@ -15,13 +15,24 @@
 </div>
 
 <div class="span2 depth2 pull-right pad-full-medium wrapper">
-  <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S PORTFOLIOS!</h3>
-  <a href="<%= portfolios_user_path(@user) %>">Portfolios Here.</a>
+  <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S COLLECTIONS!</h3>
+
 </div> 
 
 <div class="clear"></div> 
 
 <div class="spacer-small"></div>
+
+<div class="span2 depth2 pull-right pad-full-medium wrapper">
+  <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S PORTFOLIOS!</h3>
+  <a href="<%= portfolios_user_path(@user) %>">Portfolios Here.</a>
+  <p><% @portfolios.each do |portfolio| %>
+    <tr>
+      <td><%= portfolio.name %></td><br/>
+    </tr>
+  <% end %></p>
+</div> 
+
 <div class="span2 depth2 pull-left pad-full-medium wrapper">
   <div class="span8">
       <%= render 'follow_form' if signed_in? %>

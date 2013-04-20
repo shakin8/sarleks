@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
   has_many :portfolios, dependent: :destroy
+  has_many :collections, dependent: :destroy
 
   before_save { self.email.downcase! }
   before_save { self.username.downcase! }

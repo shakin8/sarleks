@@ -12,5 +12,12 @@
       <td><%= image_tag("portfolioIcon.png", alt: "Portfolio Logo")%></td>
       <td><%= portfolio.name %></td><br/>
     </tr>
+
+    <tr>
+      <% (1..@user.collections.find_all_by_portfolio_id(portfolio).length).each do |collection| %>
+        <td><%= @user.collections.find_all_by_portfolio_id(portfolio) %></td><br/>
+      <% end %>
+    </tr>
+
   <% end %>
 </div>

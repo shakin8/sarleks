@@ -1,0 +1,15 @@
+<% provide(:title, @title) %>
+
+<div class="spacer-medium"></div>
+
+<div class="span1 depth2 pull-left pad-full-medium wrapper">
+  <h3 class="pad-top-bottom-small">PORTFOLIO'S</h3>
+  <p class="pad-top-bottom-small">
+    Click on a collection to explore further collections and items.
+  </p>
+  <% @collections.each do |collection| %>
+    <tr>
+      <td><%= collection.name %></td><br/>
+    </tr>
+  <% end %>
+</div>
