@@ -4,6 +4,8 @@ class Collection < ActiveRecord::Base
 
   has_many :categorisations
   has_many :portfolios, through: :categorisations
+  has_many :itemisations
+  has_many :pieces, through: :itemisations
 
   validates :user_id, presence: true
   validates :name, presence: true

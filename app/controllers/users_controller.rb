@@ -81,6 +81,11 @@ class UsersController < ApplicationController
     render 'show_collections'
   end
 
+  def pieces
+    @title = "Pieces"
+    render 'show_pieces'
+  end
+
   private
 
   def correct_user

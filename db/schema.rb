@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420085900) do
+ActiveRecord::Schema.define(:version => 20130420152304) do
 
   create_table "categorisations", :force => true do |t|
     t.integer  "portfolio_id"
@@ -26,14 +26,23 @@ ActiveRecord::Schema.define(:version => 20130420085900) do
 
   create_table "collections", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "portfolio_id"
     t.string   "name"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "collections", ["portfolio_id", "created_at"], :name => "index_collections_on_portfolio_id_and_created_at"
   add_index "collections", ["user_id", "created_at"], :name => "index_collections_on_user_id_and_created_at"
+
+  create_table "itemisations", :force => true do |t|
+    t.integer  "collection_id"
+    t.integer  "piece_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "itemisations", ["collection_id"], :name => "index_itemisations_on_collection_id"
+  add_index "itemisations", ["piece_id", "collection_id"], :name => "index_itemisations_on_piece_id_and_collection_id", :unique => true
+  add_index "itemisations", ["piece_id"], :name => "index_itemisations_on_piece_id"
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
@@ -43,6 +52,15 @@ ActiveRecord::Schema.define(:version => 20130420085900) do
   end
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
+
+  create_table "pieces", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "pieces", ["user_id", "created_at"], :name => "index_pieces_on_user_id_and_created_at"
 
   create_table "portfolios", :force => true do |t|
     t.integer  "user_id"
