@@ -16,7 +16,11 @@
 
 <div class="span2 depth2 pull-right pad-full-medium wrapper">
   <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S COLLECTIONS!</h3>
-
+  <p><% @collections.each do |collection| %>
+    <tr>
+      <td><%= collection.name %></td><br/>
+    </tr>
+  <% end %></p>
 </div> 
 
 <div class="clear"></div> 

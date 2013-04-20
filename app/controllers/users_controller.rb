@@ -69,13 +69,11 @@ class UsersController < ApplicationController
     @title = "Portfolios"
     @user = User.find_by_permalink(params[:id])
     @portfolios = @user.portfolios
-    @collections = @user.collections.find_all_by_portfolio_id(1)
-    @collections = User.find_by_permalink(params[:id])
     render 'show_portfolios'
   end
 
   def collections
-    @title = "Collections"
+    @title = "collections"
     @user = User.find_by_permalink(params[:id])
     @collections = @user.collections
     render 'show_collections'
@@ -83,6 +81,8 @@ class UsersController < ApplicationController
 
   def pieces
     @title = "Pieces"
+    @user = User.find_by_permalink(params[:id])
+    @pieces = @user.pieces
     render 'show_pieces'
   end
 

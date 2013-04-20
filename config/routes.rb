@@ -1,11 +1,17 @@
 Sarleks::Application.routes.draw do
-  resources :collections
-
   resources :users do
     member do
-      get :following, :followers, :portfolios, :collections, :pieces
+      get :following, 
+          :followers, 
+          :portfolios,
+          :collections, 
+          :pieces
     end
+    resources :portfolios    
+    resources :collections
+    resources :pieces
   end
+  
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]

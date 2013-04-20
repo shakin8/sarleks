@@ -1,1 +1,12 @@
 <% provide(:title, @title) %>
+
+<div class="spacer-medium"></div>
+
+<div class="span1 depth2 pull-left pad-full-medium wrapper">
+  <h3 class="pad-top-bottom-small">PIECES</h3>
+  <% @pieces.each do |piece| %>
+    <tr>
+      <td><%= piece.name %></td><br/>
+    </tr>
+  <% end %>
+</div>
