@@ -1,4 +1,7 @@
 Sarleks::Application.routes.draw do
+  resources :collections
+
+
   resources :users do
     member do
       get :following, :followers, :portfolios

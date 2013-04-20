@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130419191413) do
+ActiveRecord::Schema.define(:version => 20130420082221) do
+
+  create_table "collections", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "portfolio_id"
+    t.string   "name"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "collections", ["portfolio_id", "created_at"], :name => "index_collections_on_portfolio_id_and_created_at"
+  add_index "collections", ["user_id", "created_at"], :name => "index_collections_on_user_id_and_created_at"
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
