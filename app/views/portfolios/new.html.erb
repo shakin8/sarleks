@@ -1,0 +1,20 @@
+<% provide(:title, 'Create A New Portfolio') %>
+<div class="spacer-medium"></div>
+
+<div class="span1 depth3 pull-left pad-full-medium wrapper">
+  <h3 class="pad-top-bottom-small">CREATE A NEW PORTFOLIO</h3>
+  <p class="pad-top-bottom-small">
+  	Enter the details of your new portfolio Below.
+  </p>
+  <div class="spacer-small"></div>
+
+<%= form_for(@portfolio) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Portfolio Name", class: "form-input" %>
+  </div>
+  <%= f.submit "Create Portfolio", class: "button" %>
+  <span class="countdown"></span>
+<% end %>
+
+</div>

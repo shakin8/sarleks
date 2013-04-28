@@ -11,6 +11,15 @@
     <section>
       <%= render 'shared/stats' %>
     </section>
+    <section>
+      <p>
+        <ul>
+          <li>Create new Portfolio <%= link_to "+", new_user_portfolio_path(@user), class: "button" %></li>
+          <li><%= link_to "Create new collection", "#" %></li>
+          <li><%= link_to "Create new piece", "#" %></li>
+        </ul>
+      </p>
+    </section>
   </aside>
 </div>
 
