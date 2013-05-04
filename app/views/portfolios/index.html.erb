@@ -1,0 +1,18 @@
+<% provide(:title, @title) %>
+
+<div class="spacer-medium"></div>
+
+<div class="span1 depth2 pull-left pad-full-medium wrapper">
+  <h3 class="pad-top-bottom-small">PORTFOLIO'S</h3>
+  <p class="pad-top-bottom-small">
+    Click on a portfolio to explore further collections and items.
+  </p>
+  <% @portfolios.each do |portfolio| %>
+    <tr>
+      <td><%= portfolio.name %></td>
+      <td> | <%= link_to 'Show', user_portfolio_path({user_id: @user.permalink, id: portfolio.id}) %></td>
+      <td> | <%= link_to 'Edit', '#' %></td>
+      <td> | <%= link_to 'Destroy', user_portfolio_path({user_id: @user.permalink, id: portfolio.id}), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr><br/>
+  <% end %>
+</div>

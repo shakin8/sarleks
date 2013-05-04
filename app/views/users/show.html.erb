@@ -14,6 +14,7 @@
     <section>
       <p>
         <ul>
+          <li><%= @current_user %></li>
           <li>Create new Portfolio <%= link_to "+", new_user_portfolio_path(@user), class: "button" %></li>
           <li><%= link_to "Create new collection", "#" %></li>
           <li><%= link_to "Create new piece", "#" %></li>
@@ -38,7 +39,7 @@
 
 <div class="span2 depth2 pull-right pad-full-medium wrapper">
   <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S PORTFOLIOS!</h3>
-  <a href="<%= portfolios_user_path(@user) %>">Portfolios Here.</a>
+  <a href="<%= user_portfolios_path(@user) %>">Portfolios Here.</a>
   <p><% @portfolios.each do |portfolio| %>
     <tr>
       <td><%= portfolio.name %></td><br/>
@@ -50,7 +51,7 @@
   <div class="span8">
       <%= render 'follow_form' if signed_in? %>
     <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <h3>Activity (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
         <%= render @microposts %>
       </ol>

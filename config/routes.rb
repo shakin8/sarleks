@@ -2,20 +2,18 @@ Sarleks::Application.routes.draw do
   resources :users do
     member do
       get :following, 
-          :followers, 
-          :portfolios,
-          :collections, 
-          :pieces
+          :followers
     end
-    resources :portfolios    
-    resources :collections
-    resources :pieces
+    resources :portfolios, except: :create    
   end
   
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
-  resources :portfolios, only: [:create, :destroy]
+  #There should be a neater way of creating portfolios (within the resource).
+  resources :portfolios, only: [:create]
+
+
 
   root              to: 'static_pages#home'
   match '/help',    to: 'static_pages#help'
