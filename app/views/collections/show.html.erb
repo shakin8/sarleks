@@ -1,20 +1,5 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @title) %>
+<h1>Collection Details</h1>
+<%= @collection.name %>
 
-<p>
-  <b>User:</b>
-  <%= @collection.user_id %>
-</p>
-
-<p>
-  <b>Portfolio:</b>
-  <%= @collection.portfolio_id %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @collection.name %>
-</p>
-
-
-<%= link_to 'Edit', edit_collection_path(@collection) %> |
-<%= link_to 'Back', collections_path %>
+<p>There are <%= @collection.categorisations.count %> pieces in this collection. Click here to add one.</p>

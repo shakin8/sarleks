@@ -15,8 +15,8 @@
       <p>
         <ul>
           <li><%= @current_user %></li>
-          <li>Create new Portfolio <%= link_to "+", new_user_portfolio_path(@user), class: "button" %></li>
-          <li><%= link_to "Create new collection", "#" %></li>
+          <li><%= link_to "Create new Portfolio", new_user_portfolio_path(@user)%></li>
+          <li><%= link_to "Create new collection", new_user_collection_path(@user) %></li>
           <li><%= link_to "Create new piece", "#" %></li>
         </ul>
       </p>

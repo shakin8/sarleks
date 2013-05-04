@@ -1,5 +1,22 @@
-<h1>New collection</h1>
+<% provide(:title, 'Create A New Collection') %>
+<div class="spacer-medium"></div>
 
-<%= render 'form' %>
+<div class="span1 depth3 pull-left pad-full-medium wrapper">
+  <h3 class="pad-top-bottom-small">CREATE A NEW COLLECTION</h3>
+  <p class="pad-top-bottom-small">
+  	Enter the details of your new collection Below.
+  </p>
+  <div class="spacer-small"></div>
 
-<%= link_to 'Back', collections_path %>
+<%= form_for(@collection) do |f| %>
+  <div class="pull-right">
+    <%= render 'shared/error_messages', object: f.object %>
+  </div>
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Collection name", class: "form-input" %>
+  </div>
+  <%= f.submit "Create", class: "button" %>
+<% end %>
+
+
+</div>

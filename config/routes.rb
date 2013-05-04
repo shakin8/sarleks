@@ -4,7 +4,8 @@ Sarleks::Application.routes.draw do
       get :following, 
           :followers
     end
-    resources :portfolios, except: :create    
+    resources :portfolios,  except: :create  
+    resources :collections, except: :create  
   end
   
   resources :sessions, only: [:new, :create, :destroy]
@@ -12,7 +13,8 @@ Sarleks::Application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   #There should be a neater way of creating portfolios (within the resource).
   resources :portfolios, only: [:create]
-
+  #There should be a neater way of creating collections (within the resource).
+  resources :collections, only: [:create]
 
 
   root              to: 'static_pages#home'
