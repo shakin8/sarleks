@@ -6,6 +6,7 @@ Sarleks::Application.routes.draw do
     end
     resources :portfolios,  except: :create  
     resources :collections, except: :create  
+    resources :pieces, except: :create
   end
   
   resources :sessions, only: [:new, :create, :destroy]
@@ -15,6 +16,8 @@ Sarleks::Application.routes.draw do
   resources :portfolios, only: [:create]
   #There should be a neater way of creating collections (within the resource).
   resources :collections, only: [:create]
+  #There should be a neater way of creating pieces (within the resource).
+  resources :pieces, only: [:create]
 
 
   root              to: 'static_pages#home'

@@ -14,10 +14,9 @@
     <section>
       <p>
         <ul>
-          <li><%= @current_user %></li>
           <li><%= link_to "Create new Portfolio", new_user_portfolio_path(@user)%></li>
           <li><%= link_to "Create new collection", new_user_collection_path(@user) %></li>
-          <li><%= link_to "Create new piece", "#" %></li>
+          <li><%= link_to "Create new piece", new_user_piece_path(@user) %></li>
         </ul>
       </p>
     </section>

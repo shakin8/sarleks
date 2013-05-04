@@ -1,0 +1,22 @@
+<% provide(:title, 'Create A New Piece') %>
+<div class="spacer-medium"></div>
+
+<div class="span1 depth3 pull-left pad-full-medium wrapper">
+  <h3 class="pad-top-bottom-small">CREATE A NEW PIECE</h3>
+  <p class="pad-top-bottom-small">
+  	Enter the details of your new piece Below.
+  </p>
+  <div class="spacer-small"></div>
+
+<%= form_for(@piece) do |f| %>
+  <div class="pull-right">
+    <%= render 'shared/error_messages', object: f.object %>
+  </div>
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Portfolio name", class: "form-input" %>
+  </div>
+  <%= f.submit "Create", class: "button" %>
+<% end %>
+
+
+</div>
