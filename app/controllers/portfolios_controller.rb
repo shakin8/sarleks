@@ -25,7 +25,7 @@ class PortfoliosController < ApplicationController
       flash[:success] = "Portfolio created!"
       redirect_to user_portfolio_path(current_user, @portfolio)
     else
-      redirect_to root_path
+      render 'new'
     end
   end
 

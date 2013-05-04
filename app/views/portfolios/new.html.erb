@@ -11,9 +11,9 @@
 <%= form_for(@portfolio) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_field :name, placeholder: "Portfolio name" %>
+    <%= f.text_field :name, placeholder: "Portfolio name", class: "form-input" %>
   </div>
-  <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+  <%= f.submit "Create", class: "button" %>
 <% end %>
 
 
