@@ -35,4 +35,10 @@ class PortfoliosController < ApplicationController
     redirect_to root_path
     flash[:success] = "Portfolio Destroyed!"
   end
+
+  def edit
+    @title = "Following"
+    @portfolio = Portfolio.find(params[:id])
+    @collections = @portfolio.collections.paginate(page: params[:page])
+  end
 end
