@@ -2,18 +2,8 @@
 <h1>Portfolio Details</h1>
 <%= @portfolio.name %>
 
-<p><% if @collections.count == 1 %>
-	 There is 1 collection
-   <% else %>
-	 There are <%= @collections.count %> collections 
-   <% end %>in this portfolio.</p><br/>
+<p><%= render 'catalogue' %></p>
 
-  <p><% @user.collections.each do |collection| %>
-    <tr>
-      <td><%= link_to collection.name, user_collection_path({user_id: @user.permalink, id: collection.id}) %>
-          Portfolio id: <%= collection.id %>
-          <%= render 'catalogue_form', collection: collection %><br/></td>
-    </tr>
-  <% end %></p>
+
 
 

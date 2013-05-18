@@ -1,0 +1,32 @@
+<div id="catalogue">
+  <p><%= render 'portfolios/catalogue_count' %></p>
+
+  <% @user.collections.each do |collection| %>
+    <tr>
+      <td><%= link_to collection.name, user_collection_path({user_id: @user.permalink, id: collection.id}) %>
+              Portfolio id: <%= collection.id %>
+
+    <% unless @portfolio.catalogued?(collection) %>
+      not in the current portfolio
+      <% if current_user?(@user) %>
+        <%= form_for(@portfolio.categorisations.build(collection_id: collection.id), remote: true) do |f| %>
+          <div><%= f.hidden_field :collection_id %></div>
+          <div><%= f.hidden_field :portfolio_id, value: @portfolio.id %></div>
+          <%= f.submit "Add", class: "button" %>
+        <% end %>
+      <% end %>
+    <% else %>
+    in the current portfolio
+      <% if current_user?(@user) %>
+        <%= form_for(@portfolio.categorisations.find_by_collection_id(collection),
+                   html: { method: :delete },
+                   remote: true) do |f| %>
+          <div><%= f.hidden_field :portfolio_id, value: @portfolio.id %></div>
+          <%= f.submit "Remove", class: "button" %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <br/></td>
+      </tr>
+  <% end %>
+</div>

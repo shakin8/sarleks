@@ -4,17 +4,25 @@ class CategorisationsController < ApplicationController
   respond_to :html, :js
   
   def create
+  	@user = current_user
     @portfolio = Portfolio.find(params[:categorisation][:portfolio_id])
     @collection = Collection.find(params[:categorisation][:collection_id])
     @portfolio.catalogue!(@collection)
-    respond_with @portfolio
+
+    @collections = @portfolio.collections
+    respond_with @collections
   end 
 
   def destroy
+  	@user = current_user
     @portfolio = Portfolio.find(params[:categorisation][:portfolio_id])
     @collection = Categorisation.find(params[:id]).collection
     @portfolio.decatalogue!(@collection)
-    respond_with @portfolio
+
+  	@user = current_user
+    @portfolio = Portfolio.find(params[:categorisation][:portfolio_id])
+    @collections = @portfolio.collections
+    respond_with @collections
   end
 end
 
