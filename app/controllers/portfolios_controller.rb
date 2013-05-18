@@ -9,7 +9,7 @@ class PortfoliosController < ApplicationController
     @user = User.find_by_permalink(params[:user_id])
     @portfolio = Portfolio.find(params[:id])
     @collections = @portfolio.collections
-    @title = "#{@portfolio.name} by #{@user.username}"
+    @title = "#{@portfolio.name} by #{@user.username.sub(/^(\w)/) {|s| s.capitalize}}"
   end
 
   def new

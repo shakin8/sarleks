@@ -19,8 +19,6 @@ class CategorisationsController < ApplicationController
     @collection = Categorisation.find(params[:id]).collection
     @portfolio.decatalogue!(@collection)
 
-  	@user = current_user
-    @portfolio = Portfolio.find(params[:categorisation][:portfolio_id])
     @collections = @portfolio.collections
     respond_with @collections
   end
