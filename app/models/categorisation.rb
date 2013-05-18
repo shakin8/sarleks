@@ -6,4 +6,5 @@ class Categorisation < ActiveRecord::Base
 
   validates :portfolio_id, presence: true
   validates :collection_id, presence: true
+
 end

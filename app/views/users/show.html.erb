@@ -37,7 +37,7 @@
 
 <div class="span2 depth2 pull-right pad-full-medium wrapper">
   <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S PORTFOLIOS!</h3>
-  <a href="<%= user_portfolios_path(@user) %>">Portfolios Here.</a>
+  <p><%= link_to "Portfolios Here", user_portfolios_path(@user) %></p><br/>
   <p><% @portfolios.each do |portfolio| %>
     <tr>
       <td><%= link_to portfolio.name, user_portfolio_path({user_id: @user.permalink, id: portfolio.id}) %></td><br/>

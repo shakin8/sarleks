@@ -6,8 +6,10 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    @title = User.find_by_permalink(params[:id])
+    @user = User.find_by_permalink(params[:user_id])
     @portfolio = Portfolio.find(params[:id])
+    @collections = @portfolio.collections
+    @title = "#{@portfolio.name} by #{@user.username}"
   end
 
   def new
