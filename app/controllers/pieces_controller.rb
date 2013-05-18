@@ -7,6 +7,7 @@ class PiecesController < ApplicationController
 
   def show
     @title = User.find_by_permalink(params[:id])
+    @user = User.find_by_permalink(params[:user_id]) 
     @piece = Piece.find(params[:id])
   end
 
@@ -34,5 +35,10 @@ class PiecesController < ApplicationController
     @piece.destroy
     redirect_to root_path
     flash[:success] = "Piece Destroyed!"
+  end
+
+  def edit
+    @piece = Piece.find(params[:id])
+    @image = Image.new
   end
 end

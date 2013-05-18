@@ -1,5 +1,20 @@
 <% provide(:title, @title) %>
-<h1>Details of Piece</h1>
-<%= @piece.name %>
+<div class="spacer-medium"></div>
+<div class="span1 depth2 pull-left pad-full-medium wrapper">
+  <h3 class="pad-top-bottom-small">DETAILS OF THE PIECE (<%= @piece.name %>)</h3>
 
+  <p class="pad-top-bottom-small">
+  	Images associated with this piece.
+  </p>
 
+<div class="spacer-small"></div>
+
+<% @piece.images.each do |image| %>
+  <tr>
+    <td><%= image_tag image.image_url(:thumb).to_s %></td>
+  </tr>
+<% end %><br/>
+
+<%= link_to 'Edit This Piece', edit_user_piece_path({user_id: @user.permalink, id: @piece.id}) %>
+
+</div>

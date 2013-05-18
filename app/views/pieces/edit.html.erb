@@ -1,2 +1,23 @@
 <% provide(:title, 'edit Piece') %>
-<h1>Edit The Details of Your Piece</h1>
+
+<div class="spacer-medium"></div>
+<div class="span1 depth2 pull-left pad-full-medium wrapper">
+  <h3 class="pad-top-bottom-small">EDIT THE DETAILS OF THE PIECE</h3>
+
+  <p class="pad-top-bottom-small">
+  	Attach an image to the current piece.
+  </p>
+
+<div class="spacer-small"></div>
+
+<%= form_for @image, html: { multipart: true } do |f| %>
+    <%= f.hidden_field :piece_id, value: @piece.id %>
+    <%= f.label :image_name, "Image Name:", class: "form-label-inline" %>
+    <%= f.text_field :image_name, class: "form-input" %>
+    <%= f.label :image_name, "Upload Image:", class: "form-label-inline" %>
+    <%= f.file_field :image, class: "form-input" %>
+    <%= f.label :remote_image_url, "Or Image URL", class: "form-label-inline" %>
+    <%= f.text_field :remote_image_url, class: "form-input" %>
+    <%= f.submit "Add", class: "button" %>
+<% end %>
+</div>

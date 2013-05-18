@@ -11,7 +11,7 @@
     <tr>
       <td><%= piece.name %></td>
       <td> | <%= link_to 'Show', user_piece_path({user_id: @user.permalink, id: piece.id}) %></td>
-      <td> | <%= link_to 'Edit', '#' %></td>
+      <td> | <%= link_to 'Edit', edit_user_piece_path({user_id: @user.permalink, id: piece.id}) %></td>
       <td> | <%= link_to 'Destroy', user_piece_path({user_id: @user.permalink, id: piece.id}), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr><br/>
   <% end %>
