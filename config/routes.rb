@@ -13,7 +13,7 @@ Sarleks::Application.routes.draw do
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :categorisations, only: [:create, :destroy]
-  
+  resources :images 
 
   #There should be a neater way of creating portfolios (within the resource).
   resources :portfolios, only: [:create]
