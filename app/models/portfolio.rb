@@ -7,7 +7,7 @@ class Portfolio < ActiveRecord::Base
 
   validates :user_id, presence: true
   validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
-  default_scope order: 'portfolios.created_at ASC'
+  default_scope order: 'portfolios.created_at DESC'
 
 
   def catalogued?(collection)

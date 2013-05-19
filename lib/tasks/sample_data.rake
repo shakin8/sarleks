@@ -4,7 +4,6 @@ namespace :db do
     make_users
     make_microposts
     make_relationships
-    make_portfolios
   end
 end
 
@@ -53,15 +52,4 @@ def make_relationships
   followers      = users[3..40]
   followed_users.each { |followed| user.follow!(followed) }
   followers.each      { |follower| follower.follow!(user) }
-end
-
-def make_portfolios
-  user = User.first
-  users = User.all
-  user.portfolios.create!(name: "Shakin8")
-  user.portfolios.create!(name: "Shakin8 Specials")
-  2.times do
-    name = Faker::Lorem.sentence(5)
-    users.each { |user| user.portfolios.create!(name: name) }
-  end
 end
