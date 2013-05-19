@@ -1,0 +1,30 @@
+<div id="pieces">
+  <p><%= render 'collections/pieces_count' %></p><br/>
+
+  <% @user.pieces.each do |piece| %>
+    <tr>
+      <td><%= link_to piece.name, user_piece_path({user_id: @user.permalink, id: piece.id}) %><br/>
+    <% unless @collection.itemised?(piece) %>
+      not in the current collection
+      <% if current_user?(@user) %>
+        <%= form_for(@collection.itemisations.build(piece_id: piece.id), remote: true) do |f| %>
+          <div><%= f.hidden_field :piece_id %></div>
+          <div><%= f.hidden_field :collection_id, value: @collection.id %></div>
+          <%= image_submit_tag "home/image6.jpg", name: "piece", value: "piece" %>
+        <% end %>
+      <% end %>
+    <% else %>
+    in the current collection
+      <% if current_user?(@user) %>
+        <%= form_for(@collection.itemisations.find_by_piece_id(piece),
+                   html: { method: :delete },
+                   remote: true) do |f| %>
+          <div><%= f.hidden_field :collection_id, value: @collection.id %></div>
+          <%= image_submit_tag "home/image4.jpg", name: "piece", value: "piece" %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <br/></td>
+      </tr>
+  <% end %>
+</div>

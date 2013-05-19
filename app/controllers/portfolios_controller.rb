@@ -39,7 +39,7 @@ class PortfoliosController < ApplicationController
   end
 
   def edit
-    @title = "Following"
+    @title = "Edit Portfolio"
     @portfolio = Portfolio.find(params[:id])
     @collections = @portfolio.collections.paginate(page: params[:page])
   end

@@ -4,7 +4,7 @@ class Piece < ActiveRecord::Base
 
   has_many :images, dependent: :destroy
 
-  has_many :itemisations
+  has_many :itemisations, dependent: :destroy
   has_many :collections, through: :itemisations
 
   validates :user_id, presence: true

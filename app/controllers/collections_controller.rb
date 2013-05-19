@@ -6,8 +6,10 @@ class CollectionsController < ApplicationController
   end
 
   def show
-    @title = User.find_by_permalink(params[:id])
+    @user = User.find_by_permalink(params[:user_id])
     @collection = Collection.find(params[:id])
+    @pieces = @collection.pieces
+    @title = "#{@collection.name} by #{@user.username.sub(/^(\w)/) {|s| s.capitalize}}"
   end
 
   def new
@@ -34,5 +36,11 @@ class CollectionsController < ApplicationController
     @collection.destroy
     redirect_to root_path
     flash[:success] = "Collection Destroyed!"
+  end
+
+  def edit
+    @title = "Edit Collection"
+    @collection = Collection.find(params[:id])
+    @pieces = @collection.pieces.paginate(page: params[:page])
   end
 end
