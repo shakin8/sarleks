@@ -2,7 +2,7 @@
 
 <div class="spacer-medium"></div>
 
-<div class="span1 depth2 pull-left pad-full-medium wrapper">
+<div class="span1 pull-left pad-full-medium wrapper">
   <h3 class="pad-top-bottom-small">PIECES</h3>
   <p class="pad-top-bottom-small">
     Click on a piece to explore further.
@@ -10,9 +10,18 @@
   <% @pieces.each do |piece| %>
     <tr>
       <td><%= piece.name %></td>
+      <td>
+        <% unless piece.images.first.nil? %>
+          <%= image_tag(piece.images.first.image_url(:thumb).to_s) %>
+        <% end %>
+      </td>
       <td> | <%= link_to 'Show', user_piece_path({user_id: @user.permalink, id: piece.id}) %></td>
       <td> | <%= link_to 'Edit', edit_user_piece_path({user_id: @user.permalink, id: piece.id}) %></td>
       <td> | <%= link_to 'Destroy', user_piece_path({user_id: @user.permalink, id: piece.id}), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr><br/>
   <% end %>
+
+  <%= link_to "Create new piece", new_user_piece_path(@user) %><br/>
+
 </div>
+

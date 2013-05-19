@@ -1,59 +1,91 @@
 <% provide(:title, @user.name) %>
 <div class="spacer-medium"></div>
-<div class="span2 depth2 pull-left pad-full-medium wrapper">
-    <section class="span4">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-    <section>
-      <%= render 'shared/stats' %>
-    </section>
-    <section>
-      <p>
-        <ul>
-          <li><%= link_to "Create new Portfolio", new_user_portfolio_path(@user)%></li>
-          <li><%= link_to "Create new collection", new_user_collection_path(@user) %></li>
-          <li><%= link_to "Create new piece", new_user_piece_path(@user) %></li>
-        </ul>
-      </p>
-    </section>
+<div class="main">
+  <section class="portfolios">
+    <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S LATEST PORTFOLIOS!</h3>
+    <p>
+      <% @portfolios.each do |portfolio| %>
+        <tr>
+          <td><%= link_to portfolio.name, user_portfolio_path({user_id: @user.permalink, id: portfolio.id}) %></td><br/>
+        </tr>
+      <% end %>
+    </p><br/>
+    <p><%= link_to "View More Portfolios From #{@user.username.upcase} >>", user_portfolios_path(@user) %></p><br/>
+  </section>
+  
+  <div class="spacer-small"></div>
 
-</div>
+  <section class="collections">
+    <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S LATEST COLLECTIONS!</h3>
+    <p>
+      <% @collections.each do |collection| %>
+        <tr>
+          <td><%= link_to collection.name, user_collection_path({user_id: @user.permalink, id: collection.id}) %></td><br/>
+        </tr>
+      <% end %>
+    </p><br/>
+    <p><%= link_to "View More Collections From #{@user.username.upcase} >>", user_collections_path(@user) %></p><br/>
+  </section>  
+  
+  <div class="spacer-small"></div>
 
-<div class="span2 depth2 pull-right pad-full-medium wrapper">
-  <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S COLLECTIONS!</h3>
-  <p><% @collections.each do |collection| %>
-    <tr>
-      <td><%= link_to collection.name, user_collection_path({user_id: @user.permalink, id: collection.id}) %></td><br/>
-    </tr>
-  <% end %></p>
-</div> 
+  <section class="pieces">
+    <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S LATEST PIECES!</h3>
+    <p>
+      <tr><% @pieces.first(3).each do |piece| %>
+        <td>
+          <% unless piece.images.first.nil? %>
+            <div class="thumbnail">
+            <%= image_tag(piece.images.first.image_url(:thumb).to_s) %>
+            </div>
+          <% end %>
+        </td>
+      <% end %>
+      </tr><br/>
+    </p><br/><div class="clear"></div> 
+    <p><%= link_to "View More Pieces From #{@user.username.upcase} >>", user_pieces_path(@user) %></p><br/>
+  </section>  
+  
+  <div class="spacer-small"></div>
 
-<div class="clear"></div> 
-
-<div class="spacer-small"></div>
-
-<div class="span2 depth2 pull-right pad-full-medium wrapper">
-  <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S PORTFOLIOS!</h3>
-  <p><%= link_to "Portfolios Here", user_portfolios_path(@user) %></p><br/>
-  <p><% @portfolios.each do |portfolio| %>
-    <tr>
-      <td><%= link_to portfolio.name, user_portfolio_path({user_id: @user.permalink, id: portfolio.id}) %></td><br/>
-    </tr>
-  <% end %></p>
-</div> 
-
-<div class="span2 depth2 pull-left pad-full-medium wrapper">
-  <div class="span8">
-      <%= render 'follow_form' if signed_in? %>
+  <section class="activity">
     <% if @user.microposts.any? %>
       <h3>Activity (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
-        <%= render @microposts %>
+        <% if current_user?(@user) %>
+          <%= render 'shared/feed' %>
+        <% else %>
+          <%= render @microposts %>
+        <% end %>
       </ol>
       <%= will_paginate @microposts %>
     <% end %>
-  </div>
+  </section>  
 </div>
+
+<aside class="power-column">
+  <section class="user">
+    <%= gravatar_for @user %>
+    <h3><%= @user.name %></h3>
+    <%= render 'shared/stats' %>
+    <%= render 'follow_form' if signed_in? %>
+  </section>
+  <section>
+    <ul>
+      <li><%= link_to "Create new Portfolio", new_user_portfolio_path(@user)%></li>
+      <li><%= link_to "Create new collection", new_user_collection_path(@user) %></li>
+      <li><%= link_to "Create new piece", new_user_piece_path(@user) %></li>
+    </ul>
+  </section>
+  <section>
+    <p>Hello world this is a sentence designed to prove the wrapping of text in the small hero bar at the right hand side of the page. Let's see how it performs.</p>
+  </section>
+  <% if current_user?(@user) %>
+    <section class="activity-form">
+      <%= render 'shared/micropost_form' %>
+    </section>
+  <% end %>
+  <section>
+    <ul><%= render @microposts %></ul>
+  </section>
+</aside>
