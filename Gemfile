@@ -10,6 +10,7 @@ gem 'jquery-rails', '2.0.2'
 gem 'thin'
 gem 'rmagick'
 gem 'carrierwave'
+gem 'fog'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
