@@ -1,70 +1,59 @@
 <% provide(:title, @user.name) %>
-<div class="spacer-medium"></div>
+<div class="spacer-small"></div>
 <div class="main">
-  <section class="portfolios">
-    <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S LATEST PORTFOLIOS!</h3>
+
+  <section class="pieces thumbnail">
+    <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S LATEST PIECES!</h3>
     <p>
-      <tr>
-        <% @portfolios.first(3).each do |portfolio| %>
-          <% portfolio.collections.first(1).each do |collection| %>
-            <% collection.pieces.first(1).each do |piece| %>
-              <td>
-                <% unless piece.images.first.nil? %>
-                  <div class="thumbnail">
-                  <%= link_to image_tag(piece.images[rand(piece.images.length)].image_url(:thumb).to_s), user_portfolio_path({user_id: @user.permalink, id: portfolio.id}) %>
-                  </div>
-                <% end %>
-              </td>
-            <% end %> 
+      <ol>
+        <% @pieces.first(3).each do |piece| %> 
+          <% unless piece.images.first.nil? %>
+            <li><%= image_tag(piece.images.first.image_url(:thumb).to_s) %></li>
           <% end %>
         <% end %>
-      </tr><br/>
-    </p><br/><div class="clear"></div>
-    
-    <p><%= link_to "View More Portfolios From #{@user.username.upcase} >>", user_portfolios_path(@user) %></p><br/>
+      </ol><br/>
+    </p><br/><div class="clear"></div> 
+    <p><%= link_to "View More Pieces From #{@user.username.upcase} >>", user_pieces_path(@user) %></p><br/>
   </section>
   
   <div class="spacer-small"></div>
 
-  <section class="collections">
+  <section class="collections thumbnail">
     <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S LATEST COLLECTIONS!</h3>
     <p>
-      <tr>
+      <ol>
         <% @collections.first(3).each do |collection| %>
           <% collection.pieces.first(1).each do |piece| %>
-            <td>
-              <% unless piece.images.first.nil? %>
-                <div class="thumbnail">
-                <%= link_to image_tag(piece.images[rand(piece.images.length)].image_url(:thumb).to_s), user_collection_path({user_id: @user.permalink, id: collection.id}) %>
-                </div>
-              <% end %>
-            </td>
+            <% unless piece.images.first.nil? %>
+              <li><%= link_to image_tag(piece.images[rand(piece.images.length)].image_url(:thumb).to_s), user_collection_path({user_id: @user.permalink, id: collection.id}) %></li>
+            <% end %>            
           <% end %> 
         <% end %>
-      </tr><br/>
+      </ol><br/>
     </p><br/><div class="clear"></div>
-    
     <p><%= link_to "View More Collections From #{@user.username.upcase} >>", user_collections_path(@user) %></p><br/>
   </section>  
   
   <div class="spacer-small"></div>
 
-  <section class="pieces">
-    <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S LATEST PIECES!</h3>
+  <section class="portfolios thumbnail">
+    <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S LATEST PORTFOLIOS!</h3>
     <p>
-      <tr><% @pieces.first(3).each do |piece| %>
-        <td>
-          <% unless piece.images.first.nil? %>
-            <div class="thumbnail">
-            <%= image_tag(piece.images.first.image_url(:thumb).to_s) %>
-            </div>
+      <ol>
+        <% @portfolios.first(3).each do |portfolio| %>
+          <% portfolio.collections.first(1).each do |collection| %>
+            <% collection.pieces.first(1).each do |piece| %>
+              <% unless piece.images.first.nil? %>
+                <li><%= link_to image_tag(piece.images[rand(piece.images.length)].image_url(:thumb).to_s), user_portfolio_path({user_id: @user.permalink, id: portfolio.id}) %></li>
+              <% end %>  
+            <% end %> 
           <% end %>
-        </td>
-      <% end %>
-      </tr><br/>
-    </p><br/><div class="clear"></div> 
-    <p><%= link_to "View More Pieces From #{@user.username.upcase} >>", user_pieces_path(@user) %></p><br/>
-  </section>  
+        <% end %>
+      </ol><br/>
+    </p><br/><div class="clear"></div>
+    
+    <p><%= link_to "View More Portfolios From #{@user.username.upcase} >>", user_portfolios_path(@user) %></p><br/>
+  </section>    
   
   <div class="spacer-small"></div>
 
@@ -82,6 +71,7 @@
     <% end %>
   </section>  
 </div>
+
 
 <aside class="power-column">
   <section class="user">
