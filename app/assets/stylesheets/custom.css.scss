@@ -540,8 +540,11 @@ footer .button{
 
 /* profile associate pages layout attributes end */
 
-
-
+#follow_form .button{
+  background-color: $dark-grey;
+  border: none;
+  width: 100%;
+}
 
 .main-image img{
   width: 940px;
