@@ -7,13 +7,16 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find_by_permalink(params[:id])
-    @microposts = @user.microposts.paginate(page: params[:page])
+    @microposts = @user.microposts.first(10)
     @portfolios = @user.portfolios
     @collections = @user.collections
     @pieces = @user.pieces
     if signed_in?
       @micropost = current_user.microposts.build
-      @feed_items = current_user.feed.paginate(page: params[:page])
+      @feed_items = current_user.feed.paginate(page: params[:page], :per_page => 10)
+    else
+      @micropost = @user.microposts.build
+      @feed_items = @user.feed.paginate(page: params[:page], :per_page => 10)      
     end  
   end
 

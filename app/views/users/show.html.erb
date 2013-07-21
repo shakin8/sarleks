@@ -61,13 +61,8 @@
     <% if @user.microposts.any? %>
       <h3>Activity (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
-        <% if current_user?(@user) %>
-          <%= render 'shared/feed' %>
-        <% else %>
-          <%= render @microposts %>
-        <% end %>
+        <%= render 'shared/feed' %>
       </ol>
-      <%= will_paginate @microposts %>
     <% end %>
   </section>  
 </div>
@@ -80,6 +75,7 @@
     <%= render 'shared/stats' %>
     <%= render 'follow_form' if signed_in? %>
   </section>
+  <% if current_user?(@user) %>
   <section>
     <ul>
       <li><%= link_to "Create new Portfolio", new_user_portfolio_path(@user)%></li>
@@ -87,6 +83,7 @@
       <li><%= link_to "Create new piece", new_user_piece_path(@user) %></li>
     </ul>
   </section>
+  <% end %>
   <section>
     <p>Hello world this is a sentence designed to prove the wrapping of text in the small hero bar at the right hand side of the page. Let's see how it performs.</p>
   </section>
