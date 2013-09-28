@@ -1,8 +1,8 @@
 <% provide(:title, @title) %>
 
-<div class="spacer-medium"></div>
+<div class="spacer-small"></div>
 
-<div class="span1 pull-left pad-full-medium wrapper">
+<div class="main">
   <h3 class="pad-top-bottom-small">PIECES</h3>
   <p class="pad-top-bottom-small">
     Click on a piece to explore further.
@@ -25,3 +25,23 @@
 
 </div>
 
+<aside class="power-column">
+  <section class="user">
+    <%= gravatar_for @user %>
+    <h3><%= @user.name %></h3>
+    <%= render 'shared/stats' %>
+  </section>
+  <% if current_user?(@user) %>
+  <section>
+    <ul>
+      <li><%= link_to "Create new Portfolio", new_user_portfolio_path(@user)%></li>
+      <li><%= link_to "Create new collection", new_user_collection_path(@user) %></li>
+      <li><%= link_to "Create new piece", new_user_piece_path(@user) %></li>
+    </ul>
+  </section>
+  <% end %>
+  <section>
+    <h3>Designer Comments</h3>
+    <p>This will need to be replaced with the user defined description of the current piece. It should also have a but stating that the user can edit the description which will convert this text box to an editable form.</p>
+  </section>
+</aside>
