@@ -1,0 +1,29 @@
+<% provide(:title, @title) %>
+
+<div class="spacer-small"></div>
+
+<div class="main">
+  <h3 class="pad-top-bottom-small">LEADERBOARD</h3>
+
+  <% @pieces.each do |piece| %>
+    <tr>
+      <td><%= piece.name %> by <%= User.find_by_id(piece.user_id).username %></td>
+    </tr><br/>
+  <% end %>
+
+</div>
+
+<aside class="power-column">
+  <section>
+    <h3>Select Category</h3>
+    <ul>
+      <li>Design</li>
+      <li>Modelling</li>
+      <li>Photography</li>
+    </ul>    
+  </section>
+  <section>
+    <h3>Desciption Text</h3>
+    <p>This is the leaderboard page where users are able to view rankings for submitted designs.</p>
+  </section>
+</aside>
