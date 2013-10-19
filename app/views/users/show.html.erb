@@ -2,8 +2,8 @@
 <div class="spacer-small"></div>
 <div class="main">
 
-  <section class="pieces thumbnail">
-    <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S LATEST PIECES!</h3>
+  <section class="thumbnail">
+    <h3 class="bold-title">TAKE A LOOK AT <%= @user.username.upcase %>'S LATEST PIECES!</h3>
     <p>
       <ol>
         <% @pieces.first(3).each do |piece| %> 
@@ -15,11 +15,9 @@
     </p><br/><div class="clear"></div> 
     <p><%= link_to "View More Pieces From #{@user.username.upcase} >>", user_pieces_path(@user) %></p><br/>
   </section>
-  
-  <div class="spacer-small"></div>
 
-  <section class="collections thumbnail">
-    <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S LATEST COLLECTIONS!</h3>
+  <section class="thumbnail">
+    <h3 class="bold-title">TAKE A LOOK AT <%= @user.username.upcase %>'S LATEST COLLECTIONS!</h3>
     <p>
       <ol>
         <% @collections.first(3).each do |collection| %>
@@ -33,11 +31,9 @@
     </p><br/><div class="clear"></div>
     <p><%= link_to "View More Collections From #{@user.username.upcase} >>", user_collections_path(@user) %></p><br/>
   </section>  
-  
-  <div class="spacer-small"></div>
 
-  <section class="portfolios thumbnail">
-    <h3 class="pad-top-bottom-small">TAKE A LOOK AT <%= @user.username.upcase %>'S LATEST PORTFOLIOS!</h3>
+  <section class="thumbnail">
+    <h3 class="bold-title">TAKE A LOOK AT <%= @user.username.upcase %>'S LATEST PORTFOLIOS!</h3>
     <p>
       <ol>
         <% @portfolios.first(3).each do |portfolio| %>
