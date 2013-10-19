@@ -1,6 +1,6 @@
 <% provide(:title, @title) %>
 <div class="spacer-medium"></div>
-<div class="span1 depth2 pull-left pad-full-medium wrapper">
+<div class="span1 depth3 pull-left pad-full-medium wrapper">
   <h3 class="pad-top-bottom-small">DETAILS OF THE PIECE (<%= @piece.name %>)</h3>
 
   <p class="pad-top-bottom-small">
@@ -15,6 +15,9 @@
   </tr>
 <% end %><br/>
 
-<%= link_to 'Edit This Piece', edit_user_piece_path({user_id: @user.permalink, id: @piece.id}) %>
+<%= link_to 'Edit This Piece', edit_user_piece_path({user_id: @user.permalink, id: @piece.id}) %><br/>
+<div class="spacer-medium"></div>
+<h3>Upvote This Piece</h3>
+<%=link_to image_tag("icons/star.png", alt: "Logo"), root_path%>
 
 </div>
