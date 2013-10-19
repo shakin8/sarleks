@@ -16,10 +16,10 @@
         <% end %>
       </ol><br/>
     </p><br/><div class="clear"></div> <br/>
-    <p>
-      <% unless @pieces.count < 4%><%= link_to "View More Pieces From #{@user.username.upcase} >>", user_pieces_path(@user) %>
+    <p class="clear">
+      <% unless @pieces.count < 4%><%= link_to "View More Pieces From #{@user.username.upcase} >>", user_pieces_path(@user) %><br/>
       <% end %>
-    </p><br/>
+    </p>
   </section>
 
   <section class="thumbnail">
@@ -35,7 +35,7 @@
         <% end %>
       </ol><br/>
     </p><br/><div class="clear"></div><br/>
-    <p>
+    <p class="clear">
       <% unless @collections.count < 4%><%= link_to "View More Collections From #{@user.username.upcase} >>", user_collections_path(@user) %>
       <% end %>
     </p><br/>
@@ -55,7 +55,7 @@
           <% end %>
         <% end %>
       </ol><br/>
-    <p>
+    <p class="clear">
       <% unless @portfolios.count < 4%><%= link_to "View More Portfolios From #{@user.username.upcase} >>", user_portfolios_path(@user) %>
       <% end %>
     </p><br/>
