@@ -41,6 +41,7 @@ a:hover, a.on {
   margin-bottom: 10px;
   color: white;
   width: 670px;
+  box-shadow: 5px 5px 10px #888888;
 }
 
 img{
@@ -503,11 +504,12 @@ footer .button{
   width: 200px;
   height: 200px;
   text-align: center; 
-
+  box-shadow: 5px 5px 10px #888888
 }
 
 .thumbnail ol li:nth-child(2){
   margin: 0 12px 0 12px;
+  box-shadow: 5px 5px 10px #888888
 }
 
 /* thumbnail images on user profile page end */ 

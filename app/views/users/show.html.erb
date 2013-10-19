@@ -8,7 +8,7 @@
       <ol>
         <% @pieces.first(3).each do |piece| %> 
           <% unless piece.images.first.nil? %>
-            <li><%= image_tag(piece.images.first.image_url(:thumb).to_s) %></li>
+            <li><%= link_to image_tag(piece.images.first.image_url(:thumb).to_s), user_piece_path({user_id: @user.permalink, id: piece.id}) %></li>
           <% end %>
         <% end %>
       </ol><br/>
