@@ -1,0 +1,22 @@
+<div id="upvotes">
+
+  <% unless current_user.upvoted?(@piece) %>
+    not currently upvoted
+      <%= form_for(current_user.upvotes.build(piece_id: @piece.id), remote: true) do |f| %>
+        <div><%= f.hidden_field :piece_id %></div>
+        <div><%= f.hidden_field :user_id, value: current_user.id %></div>
+        <%= image_submit_tag "icons/star.png", name: "piece", value: "piece" %>
+      <% end %>
+  <% else %>
+    Upvotes: <%= @piece.upvotes.count %> 
+      <%= form_for(current_user.upvotes.find_by_piece_id(@piece),
+                 html: { method: :delete },
+                 remote: true) do |f| %>
+        <div><%= f.hidden_field :user_id, value: current_user.id %></div>
+        <%= image_submit_tag "icons/starorange.png", name: "piece", value: "piece" %>
+
+    <% end %>
+  <% end %>
+
+
+</div>
