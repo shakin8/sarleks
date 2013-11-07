@@ -7,6 +7,9 @@ class Piece < ActiveRecord::Base
   has_many :itemisations, dependent: :destroy
   has_many :collections, through: :itemisations
 
+  has_many :upvotes, dependent: :destroy
+  has_many :users, through: :upvotes
+
   validates :user_id, presence: true
   validates :name, presence: true
   default_scope order: 'pieces.created_at DESC'

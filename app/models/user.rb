@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
   has_many :portfolios, dependent: :destroy
   has_many :collections, dependent: :destroy
+  has_many :upvotes, dependent: :destroy
+  has_many :pieces, through: :upvotes
   has_many :pieces, dependent: :destroy
 
   before_save { self.email.downcase! }
@@ -54,6 +56,18 @@ class User < ActiveRecord::Base
   
   def unfollow!(other_user)
     relationships.find_by_followed_id(other_user.id).destroy
+  end
+
+  def upvoted?(piece)
+    upvotes.find_by_piece_id(piece.id)
+  end
+
+  def upvote!(piece)
+    upvotes.create!(piece_id: piece.id)
+  end
+
+  def unupvote!(piece)
+    upvotes.find_by_piece_id(piece.id).destroy
   end
 
   def to_param
