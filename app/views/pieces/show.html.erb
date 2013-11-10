@@ -1,6 +1,6 @@
 <% provide(:title, @title) %>
 <div class="spacer-medium"></div>
-<div class="span1 depth3 pull-left pad-full-medium wrapper">
+<div class="span1 pull-left pad-full-medium wrapper">
   <h3 class="pad-top-bottom-small">DETAILS OF THE PIECE (<%= @piece.name %>)</h3>
 
   <p class="pad-top-bottom-small">
@@ -9,17 +9,27 @@
 
 <div class="spacer-small"></div>
 
+<div class="galleria">
 <% @piece.images.each do |image| %>
-  <tr>
-    <td><%= link_to image_tag(image.image_url(:thumb).to_s), image.image_url %></td>
-  </tr>
-<% end %><br/>
-<% if current_user?(@user) %>
-  <%= link_to 'Edit This Piece', edit_user_piece_path({user_id: @user.permalink, id: @piece.id}) %><br/>
+    <%= image_tag(image.image_url.to_s) %>
 <% end %>
+</div>
+<script>
+    Galleria.loadTheme("<%= javascript_path('galleria.classic.js') %>");
+	Galleria.configure({
+	    transition: 'fade',
+	    imageCrop: false
+	});
+    Galleria.run('.galleria');
+</script>
 
 <h3>Upvote This Piece</h3>
 <p><%= render 'upvotes' %></p>
+
 </div>
+
+<style>
+    .galleria{ width: 700px; height: 400px; background: #000 }
+</style>
 
 
