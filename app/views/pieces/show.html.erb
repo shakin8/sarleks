@@ -9,23 +9,14 @@
 
 <div class="spacer-small"></div>
 
+
 <div class="galleria">
-<% @piece.images.each do |image| %>
-    <%= image_tag(image.image_url.to_s) %>
-<% end %>
+  <% @piece.images.each do |galleryitem| %>
+    <%= image_tag(galleryitem.image_url.to_s) %>
+  <% end %>
 </div>
-<script>
-    Galleria.loadTheme("<%= javascript_path('galleria.classic.js') %>");
-	Galleria.configure({
-		height: 350,
-	    transition: 'fade',
-	    imageCrop: 'height',
-	    fullscreenDoubleTap: true,
-	    showInfo: false,
-	    swipe: true
-	});
-    Galleria.run('.galleria');
-</script>
+<%= render 'shared/gallery' %>
+
 
 <h3>Upvote This Piece</h3>
 <p><%= render 'upvotes' %></p>

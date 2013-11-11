@@ -2,4 +2,15 @@
 <h1>Collection Details</h1>
 <%= @collection.name %>
 
+<div class="galleria">
+<% @collection.pieces.each do |piece| %>
+  <% piece.images.each do |galleryimage| %>
+    <%= image_tag(galleryimage.image_url.to_s) %>
+  <% end %>
+<% end %>
+</div>
+
+<%= render 'shared/gallery' %>
+<div class="spacer-medium"></div>
 <p><%= render 'pieces' %></p>
+
