@@ -1,0 +1,12 @@
+<script>
+    Galleria.loadTheme("<%= javascript_path('galleria.classic.js') %>");
+        Galleria.configure({
+          height: 350,
+          transition: 'fade',
+          imageCrop: 'height',
+          fullscreenDoubleTap: true,
+          showInfo: false,
+          swipe: true
+        });
+    Galleria.run('.galleria');
+</script>
