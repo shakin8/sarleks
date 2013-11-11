@@ -10,7 +10,7 @@
 <div class="spacer-small"></div>
 
 
-<div class="galleria">
+<div class="galleria wrapper">
   <% @piece.images.each do |galleryitem| %>
     <%= image_tag(galleryitem.image_url.to_s) %>
   <% end %>
