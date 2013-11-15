@@ -44,6 +44,38 @@ a:hover, a.on {
   box-shadow: 5px 5px 10px #888888;
 }
 
+.ornate-title { 
+  width: 100%;
+  h1 { 
+    font: 30px Arial Narrow,Helvetica,sans-serif;
+    font-size: 30px;
+    border-bottom: 1px solid $light-grey;
+    margin-bottom: 5px;
+    text-indent: 0%;
+  }
+  h1:first-letter {
+    font-size: 100px;
+    line-height: 80px; 
+  }
+  h2 {
+    float: left;
+    vertical-align: baseline;
+    color: $light-grey;
+  }
+  h3 {
+    display: inline;
+    text-align: right;
+    font-size: 15px;
+    vertical-align: top;
+    line-height: 17px; 
+  }
+  a {
+    text-transform: lowercase;
+    text-align: right;
+    vertical-align: top;
+  }
+}
+
 img{
   border: 0;
 }
@@ -537,6 +569,11 @@ footer .button{
 .power-column > section{
   border-bottom: 1px solid $light-grey;  
   padding: 5px 0 5px 0;
+}
+
+.power-column p:first-letter{
+  font-size: 200%;
+  font-style: bold;
 }
 
 .power-column > .user{

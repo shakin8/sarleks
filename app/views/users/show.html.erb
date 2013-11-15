@@ -3,7 +3,7 @@
 <div class="main">
 
   <section class="thumbnail">
-    <h3 class="bold-title">TAKE A LOOK AT <%= @user.username.upcase %>'S LATEST PIECES!</h3>
+    <h3 class="bold-title">THE LATEST PIECES FROM <%= @user.username.upcase %> </h3>
     <p>
       <ol>
         <% @pieces.first(3).each do |piece| %> 
