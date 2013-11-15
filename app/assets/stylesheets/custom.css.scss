@@ -68,11 +68,13 @@ a:hover, a.on {
     font-size: 15px;
     vertical-align: top;
     line-height: 17px; 
+    margin-bottom: 5px;
   }
   a {
     text-transform: lowercase;
     text-align: right;
     vertical-align: top;
+    color: $light-grey;
   }
 }
 
