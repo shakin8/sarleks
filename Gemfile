@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "1.9.2"
 
 gem 'rails', '3.2.12'
 gem 'bootstrap-sass', '2.1'
@@ -40,6 +41,5 @@ end
 
 group :production do
   gem 'pg'
-  gem 'rails_12factor'
 end
 
