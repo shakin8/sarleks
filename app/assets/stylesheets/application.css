@@ -10,7 +10,6 @@
  *
  *= require_self
  *= require galleria.classic
- *= require thumbnails
  *= require_tree .
  */
 
