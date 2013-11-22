@@ -2,24 +2,43 @@
 <div class="spacer-small"></div>
 <div class="main">
 
+  <div class="ornate-title">
+    <h2>USER:</h2>
+    <h1><%= @user.name.camelize %></h1>
+    <div class="pull-right"><a>Member Since: </a><h3><%= @user.created_at.strftime("%B %d, %Y") %></h3></div>
+  </div>
+
   <section class="thumbnail">
-    <h3 class="bold-title">THE LATEST PIECES FROM <%= @user.username.upcase %> </h3>
-    <p>
-      <ol>
-        <% @pieces.first(3).each do |piece| %> 
-          <% unless piece.images.first.nil? %>
-            <li><%= link_to image_tag(piece.images.first.image_url(:thumb).to_s), user_piece_path({user_id: @user.permalink, id: piece.id}) %><br/>
+    <% unless @pieces.first.nil? %>
+      <h3 class="bold-title">THE LATEST PIECES FROM <%= @user.username.upcase %> </h3>
+      <p>
+        <ol>
+          <% @pieces.first(3).each do |piece| %> 
+            <li><div class="box">
+              <% unless piece.images.first.nil? %>
+                <%= link_to image_tag(piece.images.first.image_url(:thumb).to_s, size: "200x150"), user_piece_path({user_id: @user.permalink, id: piece.id}) %><br/>
+                <span class="caption scale-caption">  
+                  <h3>Free Style Caption</h3>  
+                  <p>
+                    Lorem ipsum dolor sit amet,consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                  </p> 
+                </span>
+              <% else %>
+                <%= link_to image_tag("home/ImageUnavailable.png", size: "200x150"), user_piece_path({user_id: @user.permalink, id: piece.id}) %><br/>
+              <% end %>
+              </div>
               <section><p><%= piece.name %></p></section>
               <p>Posted <%= time_ago_in_words(piece.created_at) %> ago</p>
             </li>
           <% end %>
+        </ol><br/>
+      </p><br/><div class="clear"></div> <br/>
+      <p class="clear">
+        <% unless @pieces.count < 4 %>
+          <%= link_to "View More Pieces From #{@user.username.upcase} >>", user_pieces_path(@user) %><br/>
         <% end %>
-      </ol><br/>
-    </p><br/><div class="clear"></div> <br/>
-    <p class="clear">
-      <% unless @pieces.count < 4 %><%= link_to "View More Pieces From #{@user.username.upcase} >>", user_pieces_path(@user) %><br/>
-      <% end %>
-    </p>
+      </p>
+    <% end %>
   </section>
 
   <section class="thumbnail">
@@ -68,6 +87,7 @@
   <div class="spacer-small"></div>
 
   </section>    
+
   
   <div class="spacer-small"></div>
 
@@ -80,6 +100,8 @@
     <% end %>
   </section>  
 </div>
+
+
 
 
 <aside class="power-column">
