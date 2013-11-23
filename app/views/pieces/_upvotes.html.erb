@@ -1,24 +1,28 @@
-<div id="upvotes">
-  Upvotes: <%= @piece.upvotes.count %> 
-  <% if current_user?(@user) %>
-  <% unless current_user.upvoted?(@piece) %>
-      <%= form_for(current_user.upvotes.build(piece_id: @piece.id), remote: true) do |f| %>
-        <div><%= f.hidden_field :piece_id %></div>
-        <div><%= f.hidden_field :user_id, value: current_user.id %></div>
-        <%= image_submit_tag "icons/star.png", name: "piece", value: "piece" %>
+<div id="upvotes"> 
+  <div class="piece-stats-item"> 
+  <div class="piece-stats-item-icon">
+    <% if signed_in? %>
+      <% unless current_user.upvoted?(@piece) %>
+          <%= form_for(current_user.upvotes.build(piece_id: @piece.id), remote: true) do |f| %>
+            <div><%= f.hidden_field :piece_id %></div>
+            <div><%= f.hidden_field :user_id, value: current_user.id %></div>
+            <%= image_submit_tag "icons/star.png", name: "piece", value: "piece" %>
+          <% end %>
+      <% else %>
+          <%= form_for(current_user.upvotes.find_by_piece_id(@piece),
+                     html: { method: :delete },
+                     remote: true) do |f| %>
+            <div><%= f.hidden_field :user_id, value: current_user.id %></div>
+            <%= image_submit_tag "icons/starorange.png", name: "piece", value: "piece" %>
+        <% end %>
       <% end %>
-  <% else %>
-      <%= form_for(current_user.upvotes.find_by_piece_id(@piece),
-                 html: { method: :delete },
-                 remote: true) do |f| %>
-        <div><%= f.hidden_field :user_id, value: current_user.id %></div>
-        <%= image_submit_tag "icons/starorange.png", name: "piece", value: "piece" %>
-
+    <% else %>
+      <%= link_to image_tag("icons/star.png", alt: "Upvote"), signin_path %>
     <% end %>
-  <% end %>
-  <% else %>
-    <%= link_to image_tag("icons/star.png", alt: "Upvote"), signin_path %>
-  <% end %>
-
-
+  </div>  
+  <div class="piece-stats-item-text">
+    <h3>Upvotes: <%= @piece.upvotes.count %></h3>
+    <p>Click to score this design so that it can be made!</p>
+  </div> 
+</div>
 </div>

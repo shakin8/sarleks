@@ -24,23 +24,39 @@
 <div class="piece-stats">
   <div class="diagonal-line-1">
     <svg>  
-      <line x1="0" y1="150" x2="100" y2="0" stroke-width="1" stroke="rgb(199,199,199)"/>  
-    </svg>  
+      <line x1="0" y1="150" x2="70" y2="0" stroke-width="1" stroke="rgb(199,199,199)"/>  
+    </svg> 
+    <%= render 'upvotes' %> 
   </div>
   <div class="diagonal-line-2">
     <svg>  
-      <line x1="0" y1="150" x2="100" y2="0" stroke-width="1" stroke="rgb(199,199,199)"/> 
-    </svg> 
+      <line x1="0" y1="150" x2="70" y2="0" stroke-width="1" stroke="rgb(199,199,199)"/> 
+    </svg>
+    <div class="piece-stats-item">
+      <div class="piece-stats-item-icon">
+        <%= link_to image_tag("icons/shopping_cart.png", alt: "Upvote"), signin_path %>
+      </div> 
+      <div class="piece-stats-item-text">
+        <h3>Necessiti vel corporis nisi aut incidunt</h3>
+      </div>
+    </div> 
   </div>
   <div class="diagonal-line-3">
     <svg>  
-      <line x1="0" y1="150" x2="100" y2="0" stroke-width="1" stroke="rgb(199,199,199)"/>
-    </svg>  
+      <line x1="0" y1="150" x2="70" y2="0" stroke-width="1" stroke="rgb(199,199,199)"/>
+    </svg> 
+    <div class="piece-stats-item">
+      <div class="piece-stats-item-icon">
+        <%= link_to image_tag("icons/comments.png", alt: "Upvote"), signin_path %>
+      </div> 
+      <div class="piece-stats-item-text">
+        <h3>Necessiti vel corporis nisi aut incidunt</h3>
+      </div>
+    </div> 
   </div>
 </div>
 
-  <h3>Upvote This Piece</h3>
-  <p><%= render 'upvotes' %></p>
+  
 </div>
 
 

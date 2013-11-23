@@ -632,19 +632,51 @@ footer .button{
   float: left;
   width: 230px;
   height: 150px;
+  position: relative;
 }
 
 .diagonal-line-2{
   float: left;
   width: 230px;
   height: 150px;
+  position: relative;
 }
 
 .diagonal-line-3{
   float: left;
   width: 230px;
   height: 150px;
+  position: relative;
 }
 
 /* piece stats end */
 
+/* upvotes */
+
+.piece-stats-item{
+  position: absolute;
+  top: 40px; 
+  left: 80px;
+  width: 230px;
+  height: 75px;
+  .piece-stats-item-icon{
+    float: left;
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+    :hover {
+      opacity: 0.5;
+      filter: alpha(opacity=40);
+    }
+  }
+  .piece-stats-item-text{
+    float: left;
+    margin-left: 10px;
+    text-align: left;
+    width: 100px;
+    text-align: left;
+    word-wrap: break-word;
+  }
+}
+
+
+/* upvotes end */
