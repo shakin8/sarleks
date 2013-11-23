@@ -107,7 +107,7 @@
 <aside class="power-column">
   <section class="user">
     <%= gravatar_for @user %>
-    <h3><%= @user.name %></h3>
+    <h3><%= link_to @user.name, user_path(@user) %></h3>
     <%= render 'shared/stats' %>
   </section>
   <%= render 'users/follow_form' if signed_in? %>
