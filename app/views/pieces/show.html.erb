@@ -9,7 +9,7 @@
   <div class="clear"></div>
 
 
-<div class="galleria wrapper">
+<div class="galleria">
   <% @piece.images.each do |galleryitem| %>
     <%= image_tag(galleryitem.image_url.to_s) %>
   <% end %>
