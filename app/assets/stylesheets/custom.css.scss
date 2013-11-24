@@ -73,10 +73,18 @@ a:hover, a.on {
     vertical-align: top;
   }
   a {
-    text-transform: lowercase;
+    text-transform: uppercase;
     text-align: right;
     vertical-align: top;
     color: $light-grey;
+  }
+  .pull-right{
+    a {
+      text-transform: lowercase;
+      text-align: right;
+      vertical-align: top;
+      color: $light-grey;
+    }
   }
 }
 

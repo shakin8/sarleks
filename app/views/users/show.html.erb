@@ -3,7 +3,7 @@
 <div class="main">
 
   <div class="ornate-title">
-    <h2>DESIGNER:</h2>
+    <h2><%= link_to "DESIGNER:", users_path %></h2>
     <h1><%= @user.name.camelize %></h1>
     <div class="pull-right"><a>Member Since: </a><h3><%= @user.created_at.strftime("%B %d, %Y") %></h3></div>
   </div>

@@ -2,7 +2,7 @@
 <div class="spacer-small"></div>
 <div class="main">
   <div class="ornate-title">
-  	<h2>PIECES:</h2>
+  	<h2><%= link_to "PIECES:", user_pieces_path(@user) %></h2>
     <h1><%= @piece.name.camelize %></h1>
     <div class="pull-right"><a>Created By: </a><h3><%= @user.name %></h3></div>
   </div>
