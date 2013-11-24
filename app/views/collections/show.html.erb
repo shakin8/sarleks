@@ -5,9 +5,10 @@
     <h1><%= @collection.name.camelize %></h1>
     <div class="pull-right"><a>Created By: </a><h3><%= @user.name %></h3></div>
   </div>
-  <div class="clear"></div>
+  <div class="spacer-small"></div>
 
-<div class="galleria wrapper">
+
+<div class="galleria">
 <% @collection.pieces.each do |piece| %>
   <% piece.images.each do |galleryimage| %>
     <%= image_tag(galleryimage.image_url.to_s) %>

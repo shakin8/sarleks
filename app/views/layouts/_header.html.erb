@@ -23,9 +23,10 @@
               </ul>  
             </li>
           <% else %>
-            <li><%= link_to "My Account", signin_path %></li>
+            <li><%= link_to "Register", signup_path %></li>
+            <li>|</li>
+            <li><%= link_to "Log In", signin_path %></li>
           <% end %>
-          <li>Search</li>
         </ul>
       </nav>
     </div>

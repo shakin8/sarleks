@@ -11,7 +11,7 @@ body{
   font: 11px Arial,Helvetica,sans-serif;
   color: rgb(68,68,68);
   text-align: center; 
-  background-color: rgb(255,255,255);
+  background-color: #FFF;
 }
 
 ul {
@@ -22,6 +22,7 @@ ul {
   width: 940px;
   margin-right: auto;
   margin-left: auto;
+  background: #FFF;
 }
 
 a {
@@ -677,6 +678,5 @@ footer .button{
     word-wrap: break-word;
   }
 }
-
 
 /* upvotes end */
