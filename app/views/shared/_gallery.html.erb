@@ -1,11 +1,14 @@
 <script>
     Galleria.loadTheme("<%= javascript_path('galleria.classic.js') %>");
         Galleria.configure({
-          height: 400,
+          height: 450,
           transition: 'fade',
           fullscreenDoubleTap: true,
           showInfo: false,
-          swipe: true
+          swipe: true,
+          imageTimeout: 30000,
+          clicknext: true,
+          dummy: '/images/home/ImageUnavailable.png'
         });
     Galleria.run('.galleria');
 </script>

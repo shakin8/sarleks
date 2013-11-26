@@ -20,4 +20,9 @@ class StaticPagesController < ApplicationController
     @title = "Leaderboards"
     @pieces = Piece.first(10)
   end
+
+  def whatsnew
+    @title = "What's New"
+    @pieces = Piece.first(10)
+  end
 end

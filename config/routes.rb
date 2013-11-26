@@ -30,6 +30,7 @@ Sarleks::Application.routes.draw do
   match '/about',       to: 'static_pages#about'
   match '/contact',     to: 'static_pages#contact'
   match '/leaderboard', to: 'static_pages#leaderboard'
+  match '/whatsnew',    to: 'static_pages#whatsnew'
   match '/signup',      to: 'users#new'
   match '/signin',      to: 'sessions#new'
   match '/signout',     to: 'sessions#destroy', via: :delete

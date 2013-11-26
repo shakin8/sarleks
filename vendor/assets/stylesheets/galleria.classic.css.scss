@@ -46,7 +46,7 @@
     bottom: 10px;
     left: 10px;
     text-align: right;
-    color: #fff;
+    color: #000;
     font: normal 11px/1 arial,sans-serif;
     z-index: 1;
 }
@@ -77,7 +77,7 @@
 .galleria-info-title {
     font: bold 12px/1.1 arial,sans-serif;
     margin: 0;
-    color: #fff;
+    color: #000;
     margin-bottom: 7px;
 }
 .galleria-info-description {
@@ -137,7 +137,7 @@
     filter: alpha(opacity=30);
     cursor: pointer;
     width: 62px;
-    height: 124px;
+    height: 450px;
     position: absolute;
     left: 10px;
     z-index: 2;
