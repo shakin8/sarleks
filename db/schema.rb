@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131130191936) do
+ActiveRecord::Schema.define(:version => 20131130201808) do
 
   create_table "categorisations", :force => true do |t|
     t.integer  "portfolio_id"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20131130191936) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "score"
+    t.integer  "votes"
   end
 
   add_index "pieces", ["user_id", "created_at"], :name => "index_pieces_on_user_id_and_created_at"
