@@ -14,8 +14,6 @@
   </div>
   <div class="field">
     <%= f.text_field :name, placeholder: "Piece name", class: "form-input" %>
-    <%= f.hidden_field :score, value: 0 %>
-    <%= f.hidden_field :votes, value: 0 %>
   </div>
   <%= f.submit "Create", class: "button" %>
 <% end %>
