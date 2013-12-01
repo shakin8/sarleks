@@ -1,5 +1,5 @@
 class Piece < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :votes, :score
   belongs_to :user
 
   has_many :images, dependent: :destroy

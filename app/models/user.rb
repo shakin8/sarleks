@@ -64,10 +64,14 @@ class User < ActiveRecord::Base
 
   def upvote!(piece)
     upvotes.create!(piece_id: piece.id)
+    increase_votes(piece)
+    # calculate the new score of the piece
   end
 
   def unupvote!(piece)
     upvotes.find_by_piece_id(piece.id).destroy
+    decrease_votes(piece)
+    # calculate the new score of the piece
   end
 
   def to_param
@@ -82,6 +86,18 @@ class User < ActiveRecord::Base
 
     def create_permalink
       self.permalink = username.downcase
+    end
+
+    def increase_votes(piece)
+      # increase the number of overall votes by 1
+      p = Piece.find(piece.id)
+      p.update_attributes(votes: (p.votes += 1))      
+    end
+
+    def decrease_votes(piece)
+      # reduce the number of overall votes by 1
+      p = Piece.find(piece.id)
+      p.update_attributes(votes: (p.votes -= 1))
     end
 end
 

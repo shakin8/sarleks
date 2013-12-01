@@ -34,7 +34,7 @@ class PiecesController < ApplicationController
   def destroy
     @piece = Piece.find(params[:id])
     @piece.destroy
-    redirect_to root_path
+    redirect_to user_pieces_path
     flash[:success] = "Piece Destroyed!"
   end
 
