@@ -1,1 +1,5 @@
-<h2>Coming Soon</h2>
+  <% @pieces.each do |piece| %>
+    <tr>
+      <td><%= link_to piece.name, user_piece_path(User.find_by_id(piece.user_id), piece) %> by <%= link_to User.find_by_id(piece.user_id).username, user_path(User.find_by_id(piece.user_id).username) %><%= ", Votes: #{piece.votes}" %></td>
+    </tr><br/>
+  <% end %>
