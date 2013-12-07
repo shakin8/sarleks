@@ -1,8 +1,10 @@
-
+$signature-yellow: #FFAA00;
+$dark-grey: rgb(68,68,68);
+$light-grey: rgb(199,199,199);
 
 /* Image Box Style */
 .thumbnail .box {
-	cursor: pointer;
+/*	cursor: pointer; */
 	height: 150px;
 	float: left;
 	position: relative;
@@ -17,7 +19,7 @@
 		-moz-transition: all 300ms ease-out;
 		-o-transition: all 300ms ease-out;
 		-ms-transition: all 300ms ease-out;	
-	transition: all 300ms ease-out;
+	    transition: all 300ms ease-out;
 }
 
 /* Caption Common Style */
@@ -32,6 +34,13 @@
 		-ms-transition: all 300ms ease-out;	
 		transition: all 300ms ease-out;
 	left: 0;
+	top: 0;
+	h3 > a {
+      color: white;
+    }
+    a:hover, a.on {
+      color: $signature-yellow;
+    }
 }
 
 /** Caption 3: Fade **/

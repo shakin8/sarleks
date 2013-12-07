@@ -18,9 +18,9 @@
               <% unless piece.images.first.nil? %>
                 <%= link_to image_tag(piece.images.first.image_url(:thumb).to_s, size: "200x150"), user_piece_path({user_id: @user.permalink, id: piece.id}) %><br/>
                 <span class="caption scale-caption">  
-                  <h3>Free Style Caption</h3>  
+                  <h3><%= link_to piece.name, user_piece_path({user_id: @user.permalink, id: piece.id}) %></h3>  
                   <p>
-                    Lorem ipsum dolor sit amet,consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    Click here to view this piece in detail.
                   </p> 
                 </span>
               <% else %>
@@ -48,7 +48,7 @@
         <% @collections.first(3).each do |collection| %>
           <% collection.pieces.first(1).each do |piece| %>
             <% unless piece.images.first.nil? %>
-              <li><%= link_to image_tag(piece.images[rand(piece.images.length)].image_url(:thumb).to_s), user_collection_path({user_id: @user.permalink, id: collection.id}) %>
+              <li><%= link_to image_tag(piece.images[rand(piece.images.length)].image_url(:thumb).to_s, size: "200x150"), user_collection_path({user_id: @user.permalink, id: collection.id}) %>
                 <section><p><%= collection.name %></p></section>
                 <p>Posted <%= time_ago_in_words(collection.created_at) %> ago</p>
               </li>
@@ -71,7 +71,7 @@
           <% portfolio.collections.first(1).each do |collection| %>
             <% collection.pieces.first(1).each do |piece| %>
               <% unless piece.images.first.nil? %>
-                <li><%= link_to image_tag(piece.images[rand(piece.images.length)].image_url(:thumb).to_s), user_portfolio_path({user_id: @user.permalink, id: portfolio.id}) %>
+                <li><%= link_to image_tag(piece.images[rand(piece.images.length)].image_url(:thumb).to_s, size: "200x150"), user_portfolio_path({user_id: @user.permalink, id: portfolio.id}) %>
                   <section><p><%= portfolio.name %></p></section>
                   <p>Posted <%= time_ago_in_words(portfolio.created_at) %> ago</p>
                 </li>
