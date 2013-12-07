@@ -1,5 +1,45 @@
+<% provide(:title, "Leaderboard") %>
+<div class="spacer-small"></div>
+<div class="main">
+  <div class="ornate-title">
+  	<h2>PIECES:</h2>
+    <h1>Leaderboard</h1>
+    <div class="pull-right"><a>Ranked By: </a><h3>Score</h3></div>
+  </div>
+  <div class="spacer-small"></div>
+  <div class="clear"></div>
+
   <% @pieces.each do |piece| %>
-    <tr>
-      <td><%= link_to piece.name, user_piece_path(User.find_by_id(piece.user_id), piece) %> by <%= link_to User.find_by_id(piece.user_id).username, user_path(User.find_by_id(piece.user_id).username) %><%= ", Votes: #{piece.votes}" %></td>
-    </tr><br/>
+  <div class="leaderboard-item">
+    <div class="leaderboard-rank pull-left">
+  	    <h2 class="rotate">{<%= 7.to_words.camelize %>}</h2>
+    </div>
+    <div class="pull-left">
+      <% unless piece.images.first.nil? %>
+        <%= image_tag(piece.images.first.image_url(:thumb).to_s, size: "200x150") %><br/>
+      <% else %>
+        <%= link_to image_tag("home/ImageUnavailable.png", size: "200x150"), user_piece_path({user_id: @user.permalink, id: piece.id}) %><br/>
+      <% end %>
+    </div>
+    <div class="pull-left">
+      <%= link_to piece.name, user_piece_path(User.find_by_id(piece.user_id), piece) %> by <%= link_to User.find_by_id(piece.user_id).username, user_path(User.find_by_id(piece.user_id).username) %><%= ", Votes: #{piece.votes}" %><br/>
+    </div>
+    </div><br/>
   <% end %>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+<aside class="power-column">
+  <section>
+    <p>This will need to be replaced with the user defined description of the current piece. It should also have a but stating that the user can edit the description which will convert this text box to an editable form.</p>
+  </section>
+</aside>

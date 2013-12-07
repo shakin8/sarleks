@@ -85,6 +85,10 @@ a:hover, a.on {
       vertical-align: top;
       color: $light-grey;
     }
+    h3 > a{
+      color: $dark-grey;
+      text-transform: Capitalize;
+    }
   }
 }
 
@@ -191,6 +195,14 @@ img{
   text-align: left;
   box-shadow: 5px 5px 10px #888888;  
   overflow: hidden;
+}
+
+.rotate{
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 .remove-float{
@@ -688,3 +700,17 @@ footer .button{
 }
 
 /* upvotes end */
+
+
+/* leaderboard items */
+.leaderboard-item{
+  height: 150px;
+  width:690px;
+  .leaderboard-rank{
+    height: 150px;
+    width: 40px;
+    border: 1px solid $light-grey;
+  }
+}
+
+/* leaderboard items end */

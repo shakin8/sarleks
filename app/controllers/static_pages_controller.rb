@@ -14,7 +14,7 @@ class StaticPagesController < ApplicationController
 
   def leaderboard
     @title = "Leaderboards"
-    @pieces = Piece.unscoped.order("votes DESC").paginate(page: params[:page])
+    @pieces = Piece.unscoped.order("votes DESC").limit(10)
   end
 
   def whatsnew
