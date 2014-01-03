@@ -72,31 +72,6 @@
       </div><br/>
   <% end %>
 
-  <% @pieces.each_with_index do |piece, z| %>
-    <div class="leaderboard-item">
-      <div class="leaderboard-details">
-        <div class="leaderboard-avatars"> 
-            <% 2.times do |i|%>  
-              <ol><% (0..4).each do |j| %>
-                <li id="leaderboard-avatar">
-                  <p>
-                    <% unless @voters[z][(j+(5*i))].nil? %>
-                      <%= gravatar_for(@voters[z][(j+(5*i))], size: 30) %>
-                    <% end %>
-                  </p>
-                </li>
-              <% end %></ol>
-            <% end %>
-
-        </div>
-        <div id="leaderboard-avatar-text">
-          <h3>- Others Who Voted For This -</h3>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
-
 <aside class="power-column">
   <section>
     <p>This will need to be replaced with the user defined description of the current piece. It should also have a but stating that the user can edit the description which will convert this text box to an editable form.</p>
