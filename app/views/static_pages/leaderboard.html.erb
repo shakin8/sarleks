@@ -33,7 +33,7 @@
             <ol><% (0..4).each do |j| %>
               <li id="leaderboard-avatar">
                 <% unless @voters[z][(j+(5*i))].nil? %>
-                  <%= gravatar_for(@voters[z][(j+(5*i))], size: 30) %>
+                  <%= link_to(gravatar_for(@voters[z][(j+(5*i))], size: 30), @voters[z][(j+(5*i))]) %>
                 <% end %>
               </li>
             <% end %></ol>
