@@ -125,9 +125,6 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (2.6.8)
     nokogiri (1.5.9)
-    numbers_and_words (0.10.0)
-      activesupport
-      i18n
     pg (0.12.2)
     polyglot (0.3.3)
     pry (0.9.12)
@@ -230,7 +227,6 @@ DEPENDENCIES
   guard-rspec (= 1.2.1)
   guard-spork (= 1.2.0)
   jquery-rails (= 2.0.2)
-  numbers_and_words
   pg
   rails (= 3.2.12)
   rmagick

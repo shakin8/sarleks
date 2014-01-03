@@ -12,7 +12,6 @@ gem 'thin'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'fog'
-gem 'numbers_and_words'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

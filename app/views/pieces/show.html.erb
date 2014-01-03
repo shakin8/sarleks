@@ -56,7 +56,6 @@
     </div> 
   </div>
 </div>
-
 </div>
 
 
@@ -87,6 +86,11 @@
   <% end %>
   <section>
     <p>This will need to be replaced with the user defined description of the current piece. It should also have a but stating that the user can edit the description which will convert this text box to an editable form.</p>
+  </section>
+  <section>
+    <% @voters.each do |voter| %>
+    <%= gravatar_for(voter, size: 40) %><br/>
+    <% end %>
   </section>
 </aside>
 

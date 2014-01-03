@@ -10,7 +10,7 @@
       <td><%= link_to piece.name, user_piece_path(User.find_by_id(piece.user_id), piece) %> by <%= link_to User.find_by_id(piece.user_id).username, user_path(User.find_by_id(piece.user_id).username) %></td>
     </tr><br/>
   <% end %>
-
+  <%= @pieces %><br/>
 </div>
 
 <aside class="power-column">

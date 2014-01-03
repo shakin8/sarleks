@@ -9,6 +9,7 @@ class PiecesController < ApplicationController
     @title = User.find_by_permalink(params[:id])
     @user = User.find_by_permalink(params[:user_id]) 
     @piece = Piece.find(params[:id])
+    @voters = @piece.users
     @microposts = @user.microposts.first(10)
   end
 

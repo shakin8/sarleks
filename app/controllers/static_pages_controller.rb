@@ -12,9 +12,16 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
+  def discover
+  end
+
   def leaderboard
     @title = "Leaderboards"
-    @pieces = Piece.unscoped.order("votes DESC").limit(10)
+    @pieces = Piece.unscoped.order("votes DESC").first(5)
+    @voters = []
+    @pieces.each do |voters|
+      @voters << voters.users
+    end
   end
 
   def whatsnew
