@@ -32,11 +32,9 @@
           <% 2.times do |i|%>  
             <ol><% (0..4).each do |j| %>
               <li id="leaderboard-avatar">
-                <p>
-                  <% unless @voters[z][(j+(5*i))].nil? %>
-                    <%= gravatar_for(@voters[z][(j+(5*i))], size: 30) %>
-                  <% end %>
-                </p>
+                <% unless @voters[z][(j+(5*i))].nil? %>
+                  <%= gravatar_for(@voters[z][(j+(5*i))], size: 30) %>
+                <% end %>
               </li>
             <% end %></ol>
           <% end %>
@@ -71,6 +69,7 @@
       </div>
       </div><br/>
   <% end %>
+</div>
 
 <aside class="power-column">
   <section>
