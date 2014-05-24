@@ -35,10 +35,13 @@
             <% end %></ol>
           <% end %>
         </div>
+      <div class="leaderboard-text">
         <h2><%= link_to piece.name, user_piece_path(User.find_by_id(piece.user_id), piece) %></h2>
         <p>
           by <%= link_to User.find_by_id(piece.user_id).username, user_path(User.find_by_id(piece.user_id).username) %>
         </p>
+        <h3><%= piece.votes %> <%= "vote".pluralize(piece.votes) %></h3>
+      </div>
     </div>
   <% end %></li></ol>
   <div class="clear"></div>
