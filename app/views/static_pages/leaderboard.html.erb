@@ -18,6 +18,7 @@
   <% @pieces.each_with_index do |piece, z| %>
     <li><div class="leaderboard-item">
       <div class="leaderboard-piece">
+        <%= gravatar_for(User.find_by_id(piece.user_id), size: 184) %>
       </div>
         <div class="leaderboard-voters"> 
           <% 3.times do |i|%>  
