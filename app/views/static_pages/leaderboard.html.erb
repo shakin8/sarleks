@@ -18,7 +18,11 @@
   <% @pieces.each_with_index do |piece, z| %>
     <li><div class="leaderboard-item">
       <div class="leaderboard-piece">
-        <%= gravatar_for(User.find_by_id(piece.user_id), size: 184) %>
+        <% unless piece.images.first.nil? %>
+          <%= image_tag(piece.images.first.image_url(:thumb).to_s, size: "184x184") %><br/>
+        <% else %>
+          <%= link_to image_tag("home/ImageUnavailable.png", size: "184x184"), user_piece_path({user_id: @user.permalink, id: piece.id}) %><br/>
+        <% end %>
       </div>
         <div class="leaderboard-voters"> 
           <% 3.times do |i|%>  
