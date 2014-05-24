@@ -37,7 +37,7 @@ $light-grey: rgb(199,199,199);
       }
       
       li:nth-child(odd) {
-        margin-right: 16px;
+        margin-right: 28px;
       }
     }
 }
@@ -46,9 +46,9 @@ $light-grey: rgb(199,199,199);
 
 .leaderboard-item {
   float: left;
-  border: 2px solid $dark-grey;
-  padding: 2px;
-  width: 374px;
+  border: 1px solid $dark-grey;
+  padding: 1px;
+  width: 372px;
   height: 250px;
   margin-bottom: 16px;
 
@@ -57,42 +57,24 @@ $light-grey: rgb(199,199,199);
   }
 
   .leaderboard-piece {
-    border: 1px solid $light-grey;
-    margin: 2px;
+    background-color: black;
+    margin: 1px;
     float: left;
-    width: 170px;
-    height: 192px;
+    width: 184px;
+    height: 184px;
   }
 
   .leaderboard-voters {
-    width: 198px;
+    width: 186px;
     float: left;
 
     #leaderboard-voter {
-      border: 1px solid $light-grey;
-      margin: 2px;
+      margin: 1px;
       width: 60px;
       height: 60px;
-      background-color: black;
-      
-      p {
-        color: white;
-      }     
+      background-color: black;   
     } 
-
   }
 }
 
 
-
-.thumbnail{ 
-  padding-bottom: 5px;
-
-  p{
-    margin: 5px 0px 5px 0px;
-    font-weight: bold;
-  }
-  section{
-    border-bottom: 1px solid $light-grey;
-  }
-}
