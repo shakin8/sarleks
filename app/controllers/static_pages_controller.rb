@@ -17,7 +17,7 @@ class StaticPagesController < ApplicationController
 
   def leaderboard
     @title = "Leaderboards"
-    @pieces = Piece.unscoped.order("votes DESC").first(5)
+    @pieces = Piece.unscoped.order("votes DESC").first(10)
     @voters = []
     @pieces.each do |voters|
       @voters << voters.users

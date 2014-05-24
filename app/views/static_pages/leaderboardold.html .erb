@@ -1,0 +1,78 @@
+<% provide(:title, "Leaderboard") %>
+<div class="spacer-small"></div>
+<div class="main">
+  <div class="ornate-title">
+  	<h2>PIECES:</h2>
+    <h1>Leaderboard</h1>
+    <div class="pull-right"><a>Ranked By: </a><h3>Score</h3></div>
+  </div>
+  <div class="spacer-small"></div>
+  <div class="clear"></div>
+
+  <% @pieces.each_with_index do |piece, z| %>
+    <div class="leaderboard-item">
+      <div class="leaderboard-rank pull-left">
+    	    <h2>#<%= z+1 %>:</h2>
+      </div>
+      <div class="leaderboard-image pull-left">
+        <% unless piece.images.first.nil? %>
+          <%= image_tag(piece.images.first.image_url(:thumb).to_s, size: "200x150") %><br/>
+        <% else %>
+          <%= link_to image_tag("home/ImageUnavailable.png", size: "200x150"), user_piece_path({user_id: @user.permalink, id: piece.id}) %><br/>
+        <% end %>
+      </div>
+      <div class="leaderboard-text pull-left">
+        <h2><%= link_to piece.name, user_piece_path(User.find_by_id(piece.user_id), piece) %></h2>
+        <p>
+          by <%= link_to User.find_by_id(piece.user_id).username, user_path(User.find_by_id(piece.user_id).username) %>
+        </p>
+      </div>
+      <div class="leaderboard-details">
+        <div class="leaderboard-avatars"> 
+          <% 2.times do |i|%>  
+            <ol><% (0..4).each do |j| %>
+              <li id="leaderboard-avatar">
+                <% unless @voters[z][(j+(5*i))].nil? %>
+                  <%= link_to(gravatar_for(@voters[z][(j+(5*i))], size: 30), @voters[z][(j+(5*i))]) %>
+                <% end %>
+              </li>
+            <% end %></ol>
+          <% end %>
+        </div>
+        <div id="leaderboard-avatar-text">
+          <h3>- Others Who Voted For This -</h3>
+        </div>
+
+        <div class="leaderboard-stats">
+          <div class="leaderboard-diagonal-line">
+            <svg>  
+              <line x1="55" y1="50" x2="70" y2="0" stroke-width="1" stroke="rgb(68,68,68)"/>  
+            </svg> 
+            <div class="leaderboard-stats-item">
+              <%= link_to image_tag("icons/star.png", alt: "Upvote", size: "35x35"), signin_path %> 
+            </div>
+          </div>
+        </div>
+        <div class="leaderboard-stats">
+          <div class="leaderboard-diagonal-line">
+            <svg>  
+              <line x1="55" y1="50" x2="70" y2="0" stroke-width="1" stroke="rgb(68,68,68)"/>  
+            </svg> 
+            <div class="leaderboard-stats-item">
+              <%= link_to image_tag("icons/shopping_cart.png", alt: "Upvote", size: "35x35"), signin_path %> 
+            </div> 
+            <div class="leaderboard-stats-item leaderboard-stats-item-3">
+              <%= link_to image_tag("icons/comments.png", alt: "Upvote", size: "35x35"), signin_path %> 
+            </div>
+          </div>
+        </div>
+      </div>
+      </div><br/>
+  <% end %>
+</div>
+
+<aside class="power-column">
+  <section>
+    <p>This will need to be replaced with the user defined description of the current piece. It should also have a but stating that the user can edit the description which will convert this text box to an editable form.</p>
+  </section>
+</aside>
